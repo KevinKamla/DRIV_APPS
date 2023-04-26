@@ -1,0 +1,76 @@
+<ion-content [fullscreen]="true">
+  <div class="container">
+    <div class="name_app">
+      <h1>DRIV</h1>
+      <h2>App</h2>
+    </div>
+    <ion-card class="bloc_form">
+      <div class="sign_by_number d-f" routerLink='sign-by-number'>
+        <span class="d-f-c"><ion-icon slot="start" name="play"></ion-icon></span>
+        <p class="d-f-c">Sign in with phone number</p>
+        
+      </div>
+      <h5>or</h5>
+      <form action="" method="post"  (ngSubmit)="onSubmit()">
+        <ion-item>
+          <span class="d-f-c"><ion-icon slot="start" name="play"></ion-icon></span>
+          <ion-input type="email" formControlName="email" placeholder="Email address" label=""></ion-input>
+        </ion-item>
+        <!-- <div *ngIf="loginForm.get('email')?.invalid && loginForm.get('email')?.touched">
+          <p class="error-message" *ngIf="loginForm.get('email')?.errors.required">Email est requis</p>
+          <p class="error-message" *ngIf="loginForm.get('email')?.errors.email">Email n'est pas valide</p>
+        </div> -->
+        <ion-item>
+          <span class="d-f-c"><ion-icon slot="start" name="play"></ion-icon></span>
+          <ion-input type="password" formControlName="password" placeholder="Password" label=""></ion-input>
+        </ion-item>
+        <!-- <div *ngIf="loginForm.get('password')?.invalid && loginForm.get('password')?.touched">
+          <p class="error-message" *ngIf="loginForm.get('password')?.errors.required">Mot de passe est requis</p>
+          <p class="error-message" *ngIf="loginForm.get('password')?.errors.minlength">Mot de passe doit avoir au moins 6 caractères</p>
+        </div> -->
+        <p>Forgot password ?</p>   
+        <ion-button type="submit" expand="block" [disabled]="">Sign in</ion-button>
+      </form>
+      <p>New to Driv? <b> Sign up here</b></p>
+      <p>or with</p>
+      <div class="boc_icon"></div>
+
+      <ion-buttons class="d-f-c">
+        <ion-button class="btn-play">
+          <ion-icon slot="start" name="play-circle"></ion-icon>
+        </ion-button>
+        <ion-button class="btn-add">
+          <ion-icon slot="start" name="alert-circle"> </ion-icon>
+        </ion-button>
+      </ion-buttons>
+    </ion-card>
+  </div>
+</ion-content>
+
+<!-- <ion-content>
+  <ion-grid>
+    <ion-row>
+      <ion-col size="12" size-md="6" offset-md="3">
+        <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+          <ion-item>
+            <ion-label position="floating">Email</ion-label>
+            <ion-input type="email" formControlName="email"></ion-input>
+          </ion-item>
+          <div *ngIf="loginForm.get('email').invalid && loginForm.get('email').touched">
+            <p class="error-message" *ngIf="loginForm.get('email').errors.required">Email est requis</p>
+            <p class="error-message" *ngIf="loginForm.get('email').errors.email">Email n'est pas valide</p>
+          </div>
+          <ion-item>
+            <ion-label position="floating">Mot de passe</ion-label>
+            <ion-input type="password" formControlName="password"></ion-input>
+          </ion-item>
+          <div *ngIf="loginForm.get('password').invalid && loginForm.get('password').touched">
+            <p class="error-message" *ngIf="loginForm.get('password').errors.required">Mot de passe est requis</p>
+            <p class="error-message" *ngIf="loginForm.get('password').errors.minlength">Mot de passe doit avoir au moins 6 caractères</p>
+          </div>
+          <ion-button type="submit" expand="block" [disabled]="loginForm.invalid">Se connecter</ion-button>
+        </form>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content> -->

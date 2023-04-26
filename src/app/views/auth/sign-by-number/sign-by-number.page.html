@@ -1,0 +1,19 @@
+<ion-header [translucent]="true" >
+  <ion-toolbar>
+    <ion-title>signByNumber</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div class="container">
+    <p>Sign in with phone number</p>
+    <ion-item>
+      <span class="d-f-c"><ion-icon slot="start" name="play-circle"></ion-icon></span>
+      <ion-input type="number" placeholder="+1 (xxx) xxx-xxx" label=""></ion-input>
+    </ion-item>
+    <ion-button expand="block" [disabled]="">Continuer</ion-button>
+    <div class="policy">
+      <p>By tapping continue, you agree to <b>Terms and conditions</b> and <b>Privacy Policy</b> of Driv</p>
+    </div>
+  </div>
+</ion-content>

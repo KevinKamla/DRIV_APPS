@@ -1,0 +1,133 @@
+.d-f {
+    display: flex;
+}
+
+.d-b {
+    display: block;
+}
+
+.d-f-c {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.d-f-s {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.container {
+
+    ion-icon {
+        font-size: 30px;
+    }
+
+    .name_app {
+        margin-bottom: 30px;
+
+        h1 {
+            font-size: 80px;
+            color: purple;
+            font-weight: 600;
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        h2 {
+            text-align: center;
+            font-weight: 600;
+            color: purple;
+            margin-top: -20px;
+        }
+    }
+
+    .bloc_form {
+        padding: 20px;
+        --background: var(--ion-color-light-tint);
+        border-radius: 10px;
+        margin: 20px;
+
+        .sign_by_number {
+            height: 50px;
+            border-radius: 20px;
+
+            span {
+                width: 20%;
+                background: rgb(83, 2, 83);
+                border-radius: 5px 0 0 5px;
+
+                ion-icon {
+                    color: var(--ion-color-light);
+                }
+            }
+
+            p {
+                width: 80%;
+                background: purple;
+                margin: inherit;
+                border-radius: 0 5px 5px 0;
+                color: white;
+            }
+        }
+
+        h5 {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        h5::before {
+            // display: block;
+            content: "";
+            background: red;
+            height: 2px;
+            width: 10px;
+
+        }
+
+        h5::after {
+            display: block;
+            content: "";
+            background: var(--ion-color-medium);
+            height: 2px;
+            width: 100%;
+        }
+
+        form {
+            ion-item {
+                --background: var(--ion-color-light-shade);
+                margin-bottom: 10px;
+                border-radius: 10px;
+                --padding-start: 0;
+
+                span {
+                    background: var(--ion-color-medium-shade);
+                    height: 100%;
+                    width: 25%;
+
+                    ion-icon {
+                        color: var(--ion-color-light-contrast);
+                    }
+                }
+            }
+
+            p {
+                text-align: end;
+                color: purple;
+            }
+
+            ion-button{
+                --background: purple;
+                --background-activated: #700070;
+            }
+
+        }
+        p{
+            color: purple;
+            text-align: center;
+        }
+
+
+    }
+}

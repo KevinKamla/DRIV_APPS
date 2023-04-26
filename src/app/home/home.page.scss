@@ -1,0 +1,69 @@
+.d-f {
+  display: flex;
+}
+
+.d-b {
+  display: block;
+}
+
+.d-g {
+  display: grid;
+}
+
+.d-f-c {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.d-f-s {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.annonces {
+  overflow: scroll;
+  margin-bottom: 10px;
+
+  ion-card {
+    box-shadow: 1px 5px 10px;
+
+    ion-card-header {
+      span {
+        text-align: end;
+        background: green;
+        color: white;
+        width: max-content;
+        position: absolute;
+        right: 0;
+        top: 0;
+        padding: 5px;
+        border-radius: 0 7px;
+      }
+    }
+
+    ion-card-content {
+      .map_icon {
+        padding: 7px;
+        gap: 7px;
+      }
+
+      .map_info {
+
+        .origine,
+        .destination {
+          background: purple;
+          border-radius: 20px;
+          width: max-content;
+          padding-inline: 11px;
+          color: white;
+        }
+
+        .date_detail {
+          gap: 7px;
+        }
+      }
+    }
+  }
+}

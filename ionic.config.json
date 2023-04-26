@@ -1,5 +1,7 @@
 {
-  "name": "DRIVAPPS",
-  "integrations": {},
+  "name": "DRIVAPP",
+  "integrations": {
+    "capacitor": {}
+  },
   "type": "angular"
 }
