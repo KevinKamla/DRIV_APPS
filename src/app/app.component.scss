@@ -117,3 +117,20 @@ ion-note {
 ion-item.selected {
   --color: var(--ion-color-primary);
 }
+
+.avatar{
+  width: 80px;
+  height: 80px;
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  background-color: #6A2171;
+  color: #fff;
+  height: 150px;
+}
+
+.block2 {
+  padding-left: 10px;
+}

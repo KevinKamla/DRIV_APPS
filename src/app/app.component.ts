@@ -10,14 +10,19 @@ import { IonicModule } from '@ionic/angular';
   imports: [IonicModule, RouterLink, RouterLinkActive, CommonModule],
 })
 export class AppComponent {
-  public appPages = [
-    { title: 'Inbox', url: '/folder/inbox', icon: 'mail' },
-    { title: 'Outbox', url: '/folder/outbox', icon: 'paper-plane' },
-    { title: 'Favorites', url: '/folder/favorites', icon: 'heart' },
-    { title: 'Archived', url: '/folder/archived', icon: 'archive' },
-    { title: 'Trash', url: '/folder/trash', icon: 'trash' },
-    { title: 'Spam', url: '/folder/spam', icon: 'warning' },
+  
+   constructor() {}
+
+   public appPages = [
+    { title: 'Accueil', url: '/annonces', icon: 'home' },
+    { title: 'Profil', url: '/folder/Profil', icon: 'person-circle' },
+    { title: 'Reservations', url: '/folder/reservations', icon: 'bookmark' }, 
+    { title: 'Activités', url: '/folder/activites', icon: 'reader' } 
   ];
-  public labels = ['Family', 'Friends', 'Notes', 'Work', 'Travel', 'Reminders'];
-  constructor() {}
+
+  public labels = [
+    { title: 'Invite des amis', url: '/folder/invite', icon: 'people' },
+    { title: 'A Propos', url: '/folder/apropos', icon: 'alert-circle' },
+    { title: 'Parametre', url: '/folder/parametre', icon: 'settings' },
+  ];
 }
