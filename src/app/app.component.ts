@@ -9,5 +9,19 @@ import { IonicModule } from '@ionic/angular';
   imports: [IonicModule],
 })
 export class AppComponent {
-  constructor() {}
+  
+   constructor() {}
+
+   public appPages = [
+    { title: 'Accueil', url: '/annonces', icon: 'home' },
+    { title: 'Profil', url: '/folder/Profil', icon: 'person-circle' },
+    { title: 'Reservations', url: '/folder/reservations', icon: 'bookmark' }, 
+    { title: 'Activités', url: '/folder/activites', icon: 'reader' } 
+  ];
+
+  public labels = [
+    { title: 'Invite des amis', url: '/folder/invite', icon: 'people' },
+    { title: 'A Propos', url: '/folder/apropos', icon: 'alert-circle' },
+    { title: 'Parametre', url: '/folder/parametre', icon: 'settings' },
+  ];
 }
