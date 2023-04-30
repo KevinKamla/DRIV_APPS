@@ -1,69 +1,36 @@
-.d-f {
-  display: flex;
+ion-toolbar {
+  --ion-background-color: #ffffff;
 }
 
-.d-b {
-  display: block;
+ion-title {
+  color: var(--ion-color-purple);
+  font-weight: 600;
 }
 
-.d-g {
-  display: grid;
+.bg-button2,
+ion-button {
+  width: 40px;
+  height: 40px;
+  color: #fff ;
+  background-color: var(--ion-color-purple);
+  border-radius: 50%;
+  margin-left: 10px !important;
 }
 
-.d-f-c {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
+ion-segment {
+  gap: 15px;
+  background: var(--ion-toolbar-background, var(--ion-background-color, #fff));
+  padding: 17px;
 
-.d-f-s {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
 
-.annonces {
-  overflow: scroll;
-  margin-bottom: 10px;
-
-  ion-card {
-    box-shadow: 1px 5px 10px;
-
-    ion-card-header {
-      span {
-        text-align: end;
-        background: green;
-        color: white;
-        width: max-content;
-        position: absolute;
-        right: 0;
-        top: 0;
-        padding: 5px;
-        border-radius: 0 7px;
-      }
-    }
-
-    ion-card-content {
-      .map_icon {
-        padding: 7px;
-        gap: 7px;
-      }
-
-      .map_info {
-
-        .origine,
-        .destination {
-          background: purple;
-          border-radius: 20px;
-          width: max-content;
-          padding-inline: 11px;
-          color: white;
-        }
-
-        .date_detail {
-          gap: 7px;
-        }
-      }
-    }
+  ion-segment-button {
+    border: 1px solid var(--ion-color-purple);
+    border-radius: 7px;
+    --indicator-color: none;
+    --background-checked: var(--ion-color-purple);
+    --color-checked: white !important;
+    font-weight: 600;
+    color: var(--ion-color-dark);
   }
+
 }

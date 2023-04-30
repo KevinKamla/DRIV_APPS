@@ -1,0 +1,38 @@
+.d-f {
+    display: flex;
+}
+
+.d-b {
+    display: block;
+}
+
+.d-f-c {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.d-f-s {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+ion-header {
+    ion-title {
+        color: var(--ion-color-purple);
+        text-align: center;
+    }
+
+    ion-back-button,
+    ion-button {
+        background: var(--ion-color-purple);
+        color: var(--ion-color-primary-contrast);
+        border-radius: 50%;
+        margin: 10px;
+        height: 45px;
+        width: 45px;
+    }
+
+}

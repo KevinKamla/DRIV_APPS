@@ -1,6 +1,8 @@
-<ion-header [translucent]="true">
+<ion-header [translucent]="true" class="ion-no-border">
   <ion-toolbar>
-    <ion-title>getCodeNumber</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
@@ -8,14 +10,14 @@
   <div class="container">
     <p>Enter the code sent to +1(xxx) xxx-xxx</p>
     <ion-item>
-      <ion-input type="number" label="" [maxlength]="['1']"></ion-input>
-      <ion-input type="number" label=""></ion-input>
-      <ion-input type="number" label=""></ion-input>
-      <ion-input type="number" label=""></ion-input>
-      <ion-input type="number" label=""></ion-input>
-      <ion-input type="number" label=""></ion-input>
+      <ion-input type="number" [maxlength]="1" label=""></ion-input>
+      <ion-input type="number" [maxlength]="1" label=""></ion-input>
+      <ion-input type="number" [maxlength]="1" label=""></ion-input>
+      <ion-input type="number" [maxlength]="1" label=""></ion-input>
+      <ion-input type="number" [maxlength]="1" label=""></ion-input>
+      <ion-input type="number" [maxlength]="1" label=""></ion-input>
     </ion-item>
-    <ion-button expand="block" [disabled]="">Submit</ion-button>
+    <ion-button expand="block" [routerLink]="['../home']"[disabled]="">Submit</ion-button>
     <div class="policy">
       <p>Didn't receive code ?<b>Privacy Policy</b></p>
     </div>

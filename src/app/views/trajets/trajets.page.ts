@@ -5,15 +5,17 @@ import { IonicModule } from '@ionic/angular';
 import { RouterLink } from '@angular/router';
 
 @Component({
-  selector: 'app-get-code-number',
-  templateUrl: './get-code-number.page.html',
-  styleUrls: ['./get-code-number.page.scss'],
+  selector: 'app-trajets',
+  templateUrl: './trajets.page.html',
+  styleUrls: ['./trajets.page.scss'],
   standalone: true,
   imports: [IonicModule, CommonModule, FormsModule, RouterLink]
 })
-export class GetCodeNumberPage implements OnInit {
+export class TrajetsPage implements OnInit {
 
   constructor() { }
+
+  user_note: number = 3
 
   ngOnInit() {
   }

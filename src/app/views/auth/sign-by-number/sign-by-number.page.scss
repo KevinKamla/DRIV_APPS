@@ -18,11 +18,18 @@
     align-items: center;
 }
 
+ion-buttons {
+    background: var(--ion-color-purple);
+    color: white;
+    border-radius: 50%;
+    margin: 10px;
+}
+
 .container {
 
     margin: 100px 40px;
 
-    p{
+    p {
         // font-weight: 600;
     }
 
@@ -36,6 +43,7 @@
             background: var(--ion-color-medium-shade);
             height: 100%;
             width: 25%;
+            margin-right: 10px;
 
             ion-icon {
                 color: var(--ion-color-light-contrast);
@@ -45,7 +53,7 @@
 
     ion-button {
         margin-block: 30px;
-        --background: purple;
+        --background: var(--ion-color-purple);
         --background-activated: #700070;
     }
 }

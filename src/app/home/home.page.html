@@ -1,190 +1,38 @@
-<ion-header [translucent]="true">
+<ion-header [translucent]="true" class="ion-no-border">
   <ion-toolbar>
-    <ion-title>Blank</ion-title>
+    <ion-buttons slot="start">
+      <ion-avatar class="bg-button">
+        <ion-menu-button></ion-menu-button>
+      </ion-avatar> 
+    </ion-buttons>
+    <ion-title>DRIV</ion-title>
+    <ion-buttons slot="end">
+      <ion-button shape="round">
+          <ion-icon slot="icon-only" ios="search-outline" md="search-sharp"></ion-icon>
+      </ion-button>
+      <ion-button [routerLink]="['../notifications']">
+        <ion-icon slot="icon-only" ios="notifications-outline" md="notifications-sharp"></ion-icon>
+      </ion-button>
+    </ion-buttons>
   </ion-toolbar>
+  <ion-segment value="annonces" (ionChange)="segmentChanged($event)">
+    <ion-segment-button value="annonces">
+      <ion-label>Annonces</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="trajets">
+      <ion-label>Trajets</ion-label>
+    </ion-segment-button>
+  </ion-segment>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <div class="sub_title d-f-s">
-    <p>Lliste des annonces disponible</p>
-    <ion-button class="btn-play">
-      <ion-icon slot="start" name="play-circle"></ion-icon>
-    </ion-button>
-  </div>
-  <div class="annonces">
-    <ion-card>
-      <ion-card-header>
-        <span>BESOIN DE COVOITURAGE</span>
-      </ion-card-header>
-      <ion-card-content class="d-f">
-        <div class="map_icon d-g">
-          <ion-icon slot="start" name="play-circle"></ion-icon>
-          <ion-icon slot="start" name="play-circle"></ion-icon>
-          <ion-icon slot="start" name="play-circle"></ion-icon>
-        </div>
-        <div class="map_info d-b">
-          <div class="origine">Moncton, NB</div>
-          <div class="date_detail d-f">
-            <ion-icon slot="start" name="time"></ion-icon>
-            Lundi 12 dec 2022
-            <ion-icon slot="start" name="play-circle"></ion-icon>
-            04h00
-            <ion-icon slot="start" name="play-circle"></ion-icon>
-            02
-          </div>
-          <div class="card_footer d-f-s">
-            <span class="destination">Ottawa, ON</span>
-            <ion-buttons class="d-f-c">
-              <ion-button class="btn-play" color="primary">
-                <ion-icon slot="start" name="play-circle"></ion-icon>
-              </ion-button>
-              <ion-button class="btn-add" color="secondary">
-                <ion-icon slot="start" name="alert-circle"> </ion-icon>
-              </ion-button>
-            </ion-buttons>
-          </div>
-        </div>
-      </ion-card-content>
-    </ion-card>
+<ion-content [fullscreen]="true" class="ion-padding"> 
 
-    <ion-card>
-      <ion-card-header>
-        <span>BESOIN DE COVOITURAGE</span>
-      </ion-card-header>
-      <ion-card-content class="d-f">
-        <div class="map_icon d-g">
-          <ion-icon slot="start" name="play-circle"></ion-icon>
-          <ion-icon slot="start" name="play-circle"></ion-icon>
-          <ion-icon slot="start" name="play-circle"></ion-icon>
-        </div>
-        <div class="map_info d-b">
-          <div class="origine">Moncton, NB</div>
-          <div class="date_detail d-f">
-            <ion-icon slot="start" name="time"></ion-icon>
-            Lundi 12 dec 2022
-            <ion-icon slot="start" name="play-circle"></ion-icon>
-            04h00
-            <ion-icon slot="start" name="play-circle"></ion-icon>
-            02
-          </div>
-          <div class="card_footer d-f-s">
-            <span class="destination">Ottawa, ON</span>
-            <ion-buttons class="d-f-c">
-              <ion-button class="btn-play" color="primary">
-                <ion-icon slot="start" name="play-circle"></ion-icon>
-              </ion-button>
-              <ion-button class="btn-add" color="secondary">
-                <ion-icon slot="start" name="alert-circle"> </ion-icon>
-              </ion-button>
-            </ion-buttons>
-          </div>
-        </div>
-      </ion-card-content>
-    </ion-card>
-
-    <ion-card>
-      <ion-card-header>
-        <span>BESOIN DE COVOITURAGE</span>
-      </ion-card-header>
-      <ion-card-content class="d-f">
-        <div class="map_icon d-g">
-          <ion-icon slot="start" name="play-circle"></ion-icon>
-          <ion-icon slot="start" name="play-circle"></ion-icon>
-          <ion-icon slot="start" name="play-circle"></ion-icon>
-        </div>
-        <div class="map_info d-b">
-          <div class="origine">Moncton, NB</div>
-          <div class="date_detail d-f">
-            <ion-icon slot="start" name="time"></ion-icon>
-            Lundi 12 dec 2022
-            <ion-icon slot="start" name="play-circle"></ion-icon>
-            04h00
-            <ion-icon slot="start" name="play-circle"></ion-icon>
-            02
-          </div>
-          <div class="card_footer d-f-s">
-            <span class="destination">Ottawa, ON</span>
-            <ion-buttons class="d-f-c">
-              <ion-button class="btn-play" color="primary">
-                <ion-icon slot="start" name="play-circle"></ion-icon>
-              </ion-button>
-              <ion-button class="btn-add" color="secondary">
-                <ion-icon slot="start" name="alert-circle"> </ion-icon>
-              </ion-button>
-            </ion-buttons>
-          </div>
-        </div>
-      </ion-card-content>
-    </ion-card>
-
-    <ion-card>
-      <ion-card-header>
-        <span>BESOIN DE COVOITURAGE</span>
-      </ion-card-header>
-      <ion-card-content class="d-f">
-        <div class="map_icon d-g">
-          <ion-icon slot="start" name="play-circle"></ion-icon>
-          <ion-icon slot="start" name="play-circle"></ion-icon>
-          <ion-icon slot="start" name="play-circle"></ion-icon>
-        </div>
-        <div class="map_info d-b">
-          <div class="origine">Moncton, NB</div>
-          <div class="date_detail d-f">
-            <ion-icon slot="start" name="time"></ion-icon>
-            Lundi 12 dec 2022
-            <ion-icon slot="start" name="play-circle"></ion-icon>
-            04h00
-            <ion-icon slot="start" name="play-circle"></ion-icon>
-            02
-          </div>
-          <div class="card_footer d-f-s">
-            <span class="destination">Ottawa, ON</span>
-            <ion-buttons class="d-f-c">
-              <ion-button class="btn-play" color="primary">
-                <ion-icon slot="start" name="play-circle"></ion-icon>
-              </ion-button>
-              <ion-button class="btn-add" color="secondary">
-                <ion-icon slot="start" name="alert-circle"> </ion-icon>
-              </ion-button>
-            </ion-buttons>
-          </div>
-        </div>
-      </ion-card-content>
-    </ion-card>
-
-    <ion-card>
-      <ion-card-header>
-        <span>BESOIN DE COVOITURAGE</span>
-      </ion-card-header>
-      <ion-card-content class="d-f">
-        <div class="map_icon d-g">
-          <ion-icon slot="start" name="play-circle"></ion-icon>
-          <ion-icon slot="start" name="play-circle"></ion-icon>
-          <ion-icon slot="start" name="play-circle"></ion-icon>
-        </div>
-        <div class="map_info d-b">
-          <div class="origine">Moncton, NB</div>
-          <div class="date_detail d-f">
-            <ion-icon slot="start" name="time"></ion-icon>
-            Lundi 12 dec 2022
-            <ion-icon slot="start" name="play-circle"></ion-icon>
-            04h00
-            <ion-icon slot="start" name="play-circle"></ion-icon>
-            02
-          </div>
-          <div class="card_footer d-f-s">
-            <span class="destination">Ottawa, ON</span>
-            <ion-buttons class="d-f-c">
-              <ion-button class="btn-play" color="primary">
-                <ion-icon slot="start" name="play-circle"></ion-icon>
-              </ion-button>
-              <ion-button class="btn-add" color="secondary">
-                <ion-icon slot="start" name="alert-circle"> </ion-icon>
-              </ion-button>
-            </ion-buttons>
-          </div>
-        </div>
-      </ion-card-content>
-    </ion-card>
+  <div>
+    <div *ngIf = "segmentSelected == 'annonces' ">
+      <app-annonces></app-annonces>
+    </div>
+    <div *ngIf = "segmentSelected == 'trajets' ">
+      <app-trajets></app-trajets>
+    </div>
   </div>
 </ion-content>

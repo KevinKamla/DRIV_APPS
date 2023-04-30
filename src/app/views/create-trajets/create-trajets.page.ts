@@ -4,13 +4,13 @@ import { FormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
 
 @Component({
-  selector: 'app-logout',
-  templateUrl: './logout.page.html',
-  styleUrls: ['./logout.page.scss'],
+  selector: 'app-create-trajets',
+  templateUrl: './create-trajets.page.html',
+  styleUrls: ['./create-trajets.page.scss'],
   standalone: true,
   imports: [IonicModule, CommonModule, FormsModule]
 })
-export class LogoutPage implements OnInit {
+export class CreateTrajetsPage implements OnInit {
 
   constructor() { }
 
