@@ -25,6 +25,10 @@ ion-buttons {
     margin: 10px;
 }
 
+ion-toolbar {
+    --background: none;
+}
+
 .container {
 
     margin: 100px 40px;
@@ -40,7 +44,7 @@ ion-buttons {
         --padding-start: 0;
 
         span {
-            background: var(--ion-color-medium-shade);
+            background: var(--ion-color-input-icon);
             height: 100%;
             width: 25%;
             margin-right: 10px;

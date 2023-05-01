@@ -22,8 +22,9 @@
 
 ion-header {
     ion-title {
-        color: var(--ion-color-purple);
+        color: var(--ion-color-purple-text);
         text-align: center;
+        font-weight: 700;
     }
 
     ion-back-button,
@@ -32,7 +33,7 @@ ion-header {
         color: var(--ion-color-primary-contrast);
         border-radius: 50%;
         margin: 10px;
-        height: 45px;
+        height: 47px;
         width: 45px;
     }
 
@@ -43,7 +44,7 @@ ion-content {
         margin-inline: 14px;
 
         ion-card {
-            box-shadow: 0px 2px 10px black;
+            box-shadow: 0px 2px 10px var(--ion-color-box-shadow);
             border-radius: 0 0 25px 25px;
             margin: 20px 0;
 
@@ -75,7 +76,7 @@ ion-content {
                             }
 
                             .star-sharp {
-                                color: yellow;
+                                color: #fb0;
                             }
                         }
                     }
@@ -111,10 +112,9 @@ ion-content {
 
 
                     b {
-                        color: var(--ion-color-purple);
-                        margin-inline: 5px;
+                        color: var(--ion-color-purple-text);
                         font-size: 18px;
-                        box-shadow: 1px 1px 10px black;
+                        box-shadow: 1px 1px 10px var(--ion-color-box-shadow);
                         padding-inline: 5px;
                     }
 
@@ -125,10 +125,11 @@ ion-content {
                         position: relative;
                         right: -20px;
                         height: 100%;
-                        box-shadow: 0px 0px 6px black;
+                        box-shadow: 0px 0px 6px var(--ion-color-box-shadow);
 
                         ion-button {
                             color: var(--ion-color-dark);
+                            font-size: 12px;
                         }
                         ion-icon {
                             color: var(--ion-color-green);

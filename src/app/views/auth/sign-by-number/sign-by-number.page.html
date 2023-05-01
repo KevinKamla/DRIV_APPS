@@ -9,11 +9,15 @@
 <ion-content [fullscreen]="true">
   <div class="container">
     <p>Sign in with phone number</p>
-    <ion-item>
-      <span class="d-f-c"><ion-icon name="call"></ion-icon></span>
-      <ion-input type="number" label="+1 (xxx) xxx-xxx" labelPlacement="floating"></ion-input>
-    </ion-item>
-    <ion-button expand="block" [routerLink]="['../get-code-number']" [disabled]="">Continuer</ion-button>
+    <form action="" method="post" (ngSubmit)="onSubmit()" [formGroup]="myGroup">
+      <ion-item>
+        <span class="d-f-c"><ion-icon name="call"></ion-icon></span>
+        <ion-input type="number" label="+1 (xxx) xxx-xxx" required formControlName="numberPhone"
+          labelPlacement="floating"></ion-input>
+      </ion-item>
+      <ion-button expand="block" [routerLink]="['../get-code-number']" type=""
+        [disabled]="myGroup.invalid">Continuer</ion-button>
+    </form>
     <div class="policy">
       <p>By tapping continue, you agree to <b>Terms and conditions</b> and <b>Privacy Policy</b> of Driv</p>
     </div>

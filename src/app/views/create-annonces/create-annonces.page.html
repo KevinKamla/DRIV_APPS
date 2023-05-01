@@ -3,7 +3,7 @@
     <ion-buttons slot="start">
       <ion-back-button></ion-back-button>
     </ion-buttons>
-    <ion-title>createAnnonces</ion-title>
+    <ion-title>Créer un annonce</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -17,26 +17,73 @@
           <ion-icon name="location-outline"></ion-icon>
         </div>
         <div class="inputs">
-          <ion-input required formControlName="depart" type="text" label=""></ion-input>
-          <ion-input required formControlName="arrive" type="text" label=""></ion-input>
+          <ion-input required formControlName="depart" type="text" label="Point de départ"
+            labelPlacement="floating"></ion-input>
+          <ion-input required formControlName="arrive" type="text" label="Destination"
+            labelPlacement="floating"></ion-input>
         </div>
-        <div class="icon">
-          <ion-icon slot="start" name="add"></ion-icon>
+        <div class="icon-flech">
+          <ion-icon name="swap-vertical-outline"></ion-icon>
         </div>
       </div>
       <div class="more_info">
-        <label >Besoin d'un retour ?</label>
-        <ion-segment-button value="pizza">
-          <ion-label>Pizza</ion-label>
-        </ion-segment-button>
+        <ion-label>Besoin d'un retour ?</ion-label>
+        <ion-segment value="Non" (ionChange)="segmentChanged($event)">
+          <ion-segment-button value="Non">
+            <ion-label>Non</ion-label>
+          </ion-segment-button>
+          <ion-segment-button value="Oui">
+            <ion-label>Oui</ion-label>
+          </ion-segment-button>
+        </ion-segment>
+        <ion-label>Places disponibles:</ion-label>
+        <ion-buttons slot="start">
+          <ion-icon name="people-outline"></ion-icon>
+          <ion-button shape="round" (click)="placeSubs()">
+            <ion-icon slot="icon-only" name="remove-sharp"></ion-icon>
+          </ion-button>
+          <b> {{nombrePlace}}</b>
+          <ion-button shape="round" (click)="placeAdd()">
+            <ion-icon slot="icon-only" name="add"></ion-icon>
+          </ion-button>
+        </ion-buttons>
+        <ion-input type="date" label="Date de départ" required formControlName="dateDepart"
+          labelPlacement="floating"></ion-input>
+        <div class="heure d-f">
+          <ion-input type="number" label="" [maxlength]="2" [min]="00" [max]="24" required formControlName="heureDepart"></ion-input><p class="d-f-c">h</p>
+          <b class="d-f-c">:</b>
+          <ion-input type="number" label="" [maxlength]="2" [min]="00" [max]="59" required formControlName="minuteDepart"></ion-input><p class="d-f-c">min</p>
+        </div>
+
+        <!-- 
+        <div class="date_detail d-f">
+          <ion-icon name="calendar-outline"></ion-icon>
+          Lundi 12 dec 2022
+          <ion-icon name="time-outline"></ion-icon>
+          04h00
+        </div> -->
+
+        <ion-input type="date" label="Date d'arrivé" required formControlName="dateArrive"
+          labelPlacement="floating"></ion-input>
+        <div class="heure d-f">
+          <ion-input type="number" label="" [maxlength]="2" [min]="00" [max]="24" required formControlName="heureArrive"></ion-input><p class="d-f-c">h</p>
+          <b class="d-f-c">:</b>
+          <ion-input type="number" label="" [maxlength]="2" [min]="00" [max]="59" required formControlName="minuteArrive"></ion-input><p class="d-f-c">min</p>
+        </div>
+
+        <!-- <div class="date_detail d-f">
+          <ion-icon name="calendar-outline"></ion-icon>
+          Lundi 12 dec 2022
+          <ion-icon name="time-outline"></ion-icon>
+          04h00
+        </div> -->
+
       </div>
-
-
-
-
-      <ion-button block color="purple" type="" [disabled]="myGroup.invalid">
-        Valider
-      </ion-button>
+      <div class="  btn d-f-c">
+        <ion-button block color="purple" type="" [disabled]="myGroup.invalid">
+          Valider
+        </ion-button>
+      </div>
     </form>
 
   </ion-card>

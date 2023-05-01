@@ -1,13 +1,111 @@
-<ion-header [translucent]="true">
+<ion-header [translucent]="true" class="ion-no-border">
   <ion-toolbar>
-    <ion-title>createTrajets</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Créer un trajet</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">createTrajets</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <ion-card>
+    <form action="" method="post" [formGroup]="myGroup">
+      <div class="map_info d-f-s">
+        <div class="map_icon d-g">
+          <ion-icon name="ellipse-outline"></ion-icon>
+          <ion-icon class="point" name="ellipsis-vertical-outline"></ion-icon>
+          <ion-icon name="location-outline"></ion-icon>
+        </div>
+        <div class="inputs">
+          <ion-input required formControlName="depart" type="text" label="Point de départ"
+            labelPlacement="floating"></ion-input>
+          <ion-input required formControlName="arrive" type="text" label="Destination"
+            labelPlacement="floating"></ion-input>
+        </div>
+        <div class="icon-flech">
+          <ion-icon name="swap-vertical-outline"></ion-icon>
+        </div>
+      </div>
+      <div class="more_info">
+        <ion-label>Besoin d'un retour ?</ion-label>
+        <ion-segment value="Non" (ionChange)="segmentChanged($event)">
+          <ion-segment-button value="Non">
+            <ion-label>Non</ion-label>
+          </ion-segment-button>
+          <ion-segment-button value="Oui">
+            <ion-label>Oui</ion-label>
+          </ion-segment-button>
+        </ion-segment>
+        <ion-label>Places disponibles:</ion-label>
+        <ion-buttons slot="start">
+          <ion-icon name="people-outline"></ion-icon>
+          <ion-button shape="round" (click)="placeSubs()">
+            <ion-icon slot="icon-only" name="add"></ion-icon>
+          </ion-button>
+          <b> {{nombrePlace}}</b>
+          <ion-button shape="round" (click)="placeAdd()">
+            <ion-icon slot="icon-only" name="add"></ion-icon>
+          </ion-button>
+        </ion-buttons>
+        <ion-input type="date" label="Date de départ" required formControlName="dateDepart"
+          labelPlacement="floating"></ion-input>
+        <div class="heure d-f">
+          <ion-input type="number" label="" [maxlength]="2" [min]="00" [max]="24" required
+            formControlName="heureDepart"></ion-input>
+          <p class="d-f-c">h</p>
+          <b class="d-f-c">:</b>
+          <ion-input type="number" label="" [maxlength]="2" [min]="00" [max]="59" required
+            formControlName="minuteDepart"></ion-input>
+          <p class="d-f-c">min</p>
+        </div>
+
+        <!-- 
+        <div class="date_detail d-f">
+          <ion-icon name="calendar-outline"></ion-icon>
+          Lundi 12 dec 2022
+          <ion-icon name="time-outline"></ion-icon>
+          04h00
+        </div> -->
+
+        <ion-input type="date" label="Date d'arrivé" required formControlName="dateArrive"
+          labelPlacement="floating"></ion-input>
+        <div class="heure d-f">
+          <ion-input type="number" label="" [maxlength]="2" [min]="00" [max]="24" required
+            formControlName="heureArrive"></ion-input>
+          <p class="d-f-c">h</p>
+          <b class="d-f-c">:</b>
+          <ion-input type="number" label="" [maxlength]="2" [min]="00" [max]="59" required
+            formControlName="minuteArrive"></ion-input>
+          <p class="d-f-c">min</p>
+        </div>
+
+        <!-- <div class="date_detail d-f">
+          <ion-icon name="calendar-outline"></ion-icon>
+          Lundi 12 dec 2022
+          <ion-icon name="time-outline"></ion-icon>
+          04h00
+        </div> -->
+        <ion-label>Tarif du trajet</ion-label>
+        <div class="d-f" style="align-items: center;">
+          <span>$</span><div class="input-prix d-f-c"> <ion-input type="number" placeholder="0.00" required label=""
+            formControlName="prix"></ion-input> <span>cad</span></div>
+        </div>
+        <ion-label>Commentaire</ion-label>
+        <div class="d-f-c">
+          <ion-icon name="chatbox-ellipses-outline"></ion-icon>
+          <ion-input type="text" placeholder="Taper ici ..." label="" formControlName="commentaire"></ion-input>
+          <!-- <ion-item>
+            <ion-label>Toggle</ion-label>
+            <ion-toggle slot="end" (ionChange)="ceeve($event)"></ion-toggle>
+          </ion-item> -->
+        </div>
+      </div>
+      <div class="  btn d-f-c">
+        <ion-button block color="purple" type="" [disabled]="myGroup.invalid">
+          Valider
+        </ion-button>
+      </div>
+    </form>
+
+  </ion-card>
 </ion-content>

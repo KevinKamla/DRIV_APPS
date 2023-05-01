@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormBuilder, Validators, FormControl, FormGroup, FormsModule, NgControl, ReactiveFormsModule } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
 
 @Component({
@@ -13,14 +13,32 @@ import { IonicModule } from '@ionic/angular';
 })
 export class CreateAnnoncesPage implements OnInit {
 
-  constructor(
-    private formBuilder: FormBuilder
-  ) { }
+  constructor() { }
 
+  nombrePlace: number = 0;
   myGroup = new FormGroup({
-    depart : new FormControl(),
-    arrive : new FormControl()
+    depart: new FormControl(),
+    arrive: new FormControl(),
+    dateDepart: new FormControl(),
+    heureDepart: new FormControl(),
+    minuteDepart: new FormControl(),
+    dateArrive: new FormControl(),
+    heureArrive: new FormControl(),
+    minuteArrive: new FormControl()
   });
+
+  segmentChanged(e: any) {
+    console.log("Besoin de retour : ", e.detail.value)
+  }
+
+  placeSubs() {
+    if (this.nombrePlace > 0) {
+      this.nombrePlace -= 1
+    }
+  }
+  placeAdd() {
+    this.nombrePlace += 1
+  }
 
   ngOnInit() {
   }

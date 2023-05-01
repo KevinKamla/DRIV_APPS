@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule,FormControl } from '@angular/forms';
+import { FormsModule, FormControl, ReactiveFormsModule, FormGroup } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
 import { RouterLink } from '@angular/router';
 
@@ -9,12 +9,22 @@ import { RouterLink } from '@angular/router';
   templateUrl: './sign-by-number.page.html',
   styleUrls: ['./sign-by-number.page.scss'],
   standalone: true,
-  imports: [IonicModule, CommonModule, FormsModule, RouterLink]
+  imports: [IonicModule, CommonModule, FormsModule, ReactiveFormsModule,RouterLink],
+  providers: [FormControl]
 })
 export class SignByNumberPage implements OnInit {
 
-  constructor() { }
+  constructor(
+    // private myGroup: FormGroup
+  ) { }
 
+  myGroup = new FormGroup({
+    numberPhone: new FormControl(),
+  });
+
+  onSubmit() {
+
+  }
   ngOnInit() {
   }
 

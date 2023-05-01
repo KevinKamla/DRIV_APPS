@@ -43,7 +43,53 @@
           <div class="propo-detail">
             <div class="trajet d-f-s">
               <div class="depart">Bathurst, NB</div>
-              <ion-icon slot="start" name="ellipsis-horizontal-outline"></ion-icon>
+              <ion-icon name="arrow-forward-outline"></ion-icon>
+              <div class="arrive">Montréal, QC</div>
+            </div>
+            <div class="date_detail">
+              <p> Lundi 12 dec 2022 - 4h00</p>
+            </div>
+            <div class="sms">
+              <p> Je vous offre ce covoiturage à ce prix si vous n'avez pas de bagages </p>
+            </div>
+          </div>
+        </div>
+        <div class="footer-card d-f-s">
+          <b>$80CAD</b>
+          <ion-buttons slot="end">
+            <ion-button>
+              <ion-icon slot="start" name="add"></ion-icon>Valider
+            </ion-button>
+            <ion-button class="btn2">
+              <ion-icon slot="start" name="close"></ion-icon>Refuser
+            </ion-button>
+          </ion-buttons>
+        </div>
+      </ion-card-content>
+    </ion-card>
+
+    <ion-card>
+      <ion-card-content class="">
+        <div class="container-card d-f-s">
+          <div class="aln">
+            <ion-avatar>
+              <img [src]="['../../../assets/icon/brice.jpg']" />
+            </ion-avatar>
+            <ion-label>BRICE</ion-label>
+            <div class="d-f">
+              <span *ngFor="let item of [1,2,3,4,5]">
+                <ion-icon slot="start" name="star-sharp" class="star-sharp"
+                  *ngIf="item <= user_note; else otherIcon"></ion-icon>
+                <ng-template #otherIcon>
+                  <ion-icon slot="start" name="star-outline" class="star-outline"></ion-icon>
+                </ng-template>
+              </span>
+            </div>
+          </div>
+          <div class="propo-detail">
+            <div class="trajet d-f-s">
+              <div class="depart">Bathurst, NB</div>
+              <ion-icon name="arrow-forward-outline"></ion-icon>
               <div class="arrive">Montréal, QC</div>
             </div>
             <div class="date_detail">
@@ -106,53 +152,7 @@
             <ion-button>
               <ion-icon slot="start" name="add"></ion-icon>Valider
             </ion-button>
-            <ion-button>
-              <ion-icon slot="start" name="close"></ion-icon>Refuser
-            </ion-button>
-          </ion-buttons>
-        </div>
-      </ion-card-content>
-    </ion-card>
-
-    <ion-card>
-      <ion-card-content class="">
-        <div class="container-card d-f-s">
-          <div class="aln">
-            <ion-avatar>
-              <img [src]="['../../../assets/icon/brice.jpg']" />
-            </ion-avatar>
-            <ion-label>BRICE</ion-label>
-            <div class="d-f">
-              <span *ngFor="let item of [1,2,3,4,5]">
-                <ion-icon slot="start" name="star-sharp" class="star-sharp"
-                  *ngIf="item <= user_note; else otherIcon"></ion-icon>
-                <ng-template #otherIcon>
-                  <ion-icon slot="start" name="star-outline" class="star-outline"></ion-icon>
-                </ng-template>
-              </span>
-            </div>
-          </div>
-          <div class="propo-detail">
-            <div class="trajet d-f-s">
-              <div class="depart">Bathurst, NB</div>
-              <ion-icon slot="start" name="ellipsis-horizontal-outline"></ion-icon>
-              <div class="arrive">Montréal, QC</div>
-            </div>
-            <div class="date_detail">
-              <p> Lundi 12 dec 2022 - 4h00</p>
-            </div>
-            <div class="sms">
-              <p> Je vous offre ce covoiturage à ce prix si vous n'avez pas de bagages </p>
-            </div>
-          </div>
-        </div>
-        <div class="footer-card d-f-s">
-          <b>$80CAD</b>
-          <ion-buttons slot="end">
-            <ion-button>
-              <ion-icon slot="start" name="add"></ion-icon>Valider
-            </ion-button>
-            <ion-button>
+            <ion-button class="btn2">
               <ion-icon slot="start" name="close"></ion-icon>Refuser
             </ion-button>
           </ion-buttons>

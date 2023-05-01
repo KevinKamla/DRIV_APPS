@@ -19,10 +19,14 @@
 }
 
 ion-buttons {
-    background:--ion-color-purple;
+    background: var(--ion-color-purple);
     color: white;
     border-radius: 50%;
     margin: 10px;
+}
+
+ion-toolbar {
+    --background: none;
 }
 
 .container {
@@ -34,19 +38,14 @@ ion-buttons {
         // font-weight: 600;
     }
 
-    ion-item {
-        margin-bottom: 10px;
-        border-radius: 10px;
-        --border-style: none;
-
-        ion-input {
-            border: 1px solid var(--ion-color-dark);
-            margin: 2px;
-            min-height: 43px;
-
-        }
+    ion-input {
+        border: 1px solid var(--ion-color-dark);
+        margin: 2px;
+        min-height: 43px;
 
     }
+
+
 
     ion-button {
         margin-block: 30px;

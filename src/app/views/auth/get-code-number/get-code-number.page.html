@@ -9,15 +9,17 @@
 <ion-content [fullscreen]="true">
   <div class="container">
     <p>Enter the code sent to +1(xxx) xxx-xxx</p>
-    <ion-item>
-      <ion-input type="number" [maxlength]="1" label=""></ion-input>
-      <ion-input type="number" [maxlength]="1" label=""></ion-input>
-      <ion-input type="number" [maxlength]="1" label=""></ion-input>
-      <ion-input type="number" [maxlength]="1" label=""></ion-input>
-      <ion-input type="number" [maxlength]="1" label=""></ion-input>
-      <ion-input type="number" [maxlength]="1" label=""></ion-input>
-    </ion-item>
-    <ion-button expand="block" [routerLink]="['../home']"[disabled]="">Submit</ion-button>
+    <form action="" method="post" (ngSubmit)="onSubmit()" [formGroup]="myGroup">
+      <div class="d-f-s">
+        <ion-input type="number" maxlength="1" label="" required formControlName="code1"></ion-input>
+        <ion-input type="number" maxlength="1" label="" required formControlName="code2"></ion-input>
+        <ion-input type="number" maxlength="1" label="" required formControlName="code3"></ion-input>
+        <ion-input type="number" maxlength="1" label="" required formControlName="code4"></ion-input>
+        <ion-input type="number" maxlength="1" label="" required formControlName="code5"></ion-input>
+        <ion-input type="number" maxlength="1" label="" required formControlName="code6"></ion-input>
+      </div>
+      <ion-button expand="block" [routerLink]="['../home']" type="" [disabled]="myGroup.invalid">Submit</ion-button>
+    </form>
     <div class="policy">
       <p>Didn't receive code ?<b>Privacy Policy</b></p>
     </div>

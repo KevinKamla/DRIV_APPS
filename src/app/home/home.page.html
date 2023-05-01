@@ -3,12 +3,12 @@
     <ion-buttons slot="start">
       <ion-avatar class="bg-button">
         <ion-menu-button></ion-menu-button>
-      </ion-avatar> 
+      </ion-avatar>
     </ion-buttons>
     <ion-title>DRIV</ion-title>
     <ion-buttons slot="end">
-      <ion-button shape="round">
-          <ion-icon slot="icon-only" ios="search-outline" md="search-sharp"></ion-icon>
+      <ion-button shape="round" id="open-modal-search">
+        <ion-icon slot="icon-only" ios="search-outline" md="search-sharp"></ion-icon>
       </ion-button>
       <ion-button [routerLink]="['../notifications']">
         <ion-icon slot="icon-only" ios="notifications-outline" md="notifications-sharp"></ion-icon>
@@ -25,14 +25,17 @@
   </ion-segment>
 </ion-header>
 
-<ion-content [fullscreen]="true" class="ion-padding"> 
+<ion-content [fullscreen]="true" class="ion-padding">
 
   <div>
-    <div *ngIf = "segmentSelected == 'annonces' ">
+    <div *ngIf="segmentSelected == 'annonces' ">
       <app-annonces></app-annonces>
     </div>
-    <div *ngIf = "segmentSelected == 'trajets' ">
+    <div *ngIf="segmentSelected == 'trajets' ">
       <app-trajets></app-trajets>
     </div>
   </div>
+  <!-- [enterAnimation]="['enterAnimation'] " [leaveAnimation]="['leaveAnimation']" -->
+
+
 </ion-content>

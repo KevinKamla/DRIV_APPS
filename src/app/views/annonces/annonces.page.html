@@ -4,8 +4,8 @@
     <ion-icon slot="icon-only" name="filter"></ion-icon>
   </ion-button>
 </div>
-<div class="annonces">
-   <ion-card>
+<div class="annonces" #page>
+  <ion-card>
     <ion-card-header>
       <span>BESOIN DE COVOITURAGE</span>
     </ion-card-header>
@@ -28,7 +28,7 @@
         <div class="card_footer d-f-s">
           <span class="destination">Ottawa, ON</span>
           <ion-buttons class="d-f-c">
-            <ion-button class="btn-sugg">
+            <ion-button class="btn-sugg"  id="open-modal-propo">
               <ion-icon name="hand-left"></ion-icon>
             </ion-button>
             <ion-button class="btn-add" shape="round">
@@ -174,10 +174,100 @@
         </div>
       </div>
     </ion-card-content>
-  </ion-card> 
+  </ion-card>
   <div class="fab-button">
     <ion-fab-button [routerLink]="['../create-annonces']">
       <ion-icon name="add"></ion-icon>
     </ion-fab-button>
   </div>
 </div>
+
+
+<!-- ============================= Modal search ========================== -->
+
+<ion-modal trigger="open-modal-search" id="modal-search" #modal [initialBreakpoint]="0.5" [breakpoints]="[0, 0.25, 0.5, 0.75, 1]"
+  handleBehavior="cycle"  [presentingElement]="">
+  <ng-template>
+    <ion-header [translucent]="true" class="ion-no-border">
+      <ion-toolbar color="purple">
+        <ion-title>Recherche des annnonces</ion-title>
+        <ion-buttons slot="end">
+          <ion-button (click)="modal.dismiss()">
+            <ion-icon slot="icon-only" ios="close-outline" md="close-sharp"></ion-icon>
+          </ion-button>
+        </ion-buttons>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content class="ion-padding">
+      <div class="ion-margin-top">
+        <form [formGroup]="searchForm" (ngSubmit)="Searche()">
+          <div class="input-search d-f-c">
+            <ion-icon slot="icon-only" ios="location-outline" md="location-outline"></ion-icon>
+            <ion-input type="text" placeholder="" required label="Départ" labelPlacement="floating"
+              formControlName="depart"></ion-input>
+          </div>
+          <div class="input-search d-f-c">
+            <ion-icon slot="icon-only" ios="location-outline" md="location-outline"></ion-icon>
+            <ion-input type="text" placeholder="" required label="Départ" labelPlacement="floating"
+              formControlName="arrive"></ion-input>
+          </div>
+          <div class="d-f-c">
+            <div class="input-search d-f-c">
+              <ion-icon slot="icon-only" ios="calendar-outline" md="calendar-outline"></ion-icon>
+              <ion-input type="date" label="Date" labelPlacement="floating" formControlName="date"></ion-input>
+            </div>
+            <p>Optionnel</p>
+          </div>
+
+          <div class="  btn d-f-c">
+            <ion-button block color="purple" type="submit" [disabled]="searchForm.invalid">
+              Rechercher
+            </ion-button>
+          </div>
+        </form>
+
+      </div>
+    </ion-content>
+  </ng-template>
+</ion-modal>
+
+
+<!-- ============================= Modal proposition ========================== -->
+
+<ion-modal trigger="open-modal-propo" id="modal-propo" #modale  handleBehavior="cycle"  [initialBreakpoint]="0.5" [enterAnimation]="enterAnimation" [leaveAnimation]="leaveAnimation">
+  <ng-template>
+    <ion-header [translucent]="true" class="ion-no-border">
+      <ion-toolbar color="purple">
+        <ion-title>Faire une proposition</ion-title>
+        <ion-buttons slot="end">
+          <ion-button (click)="modale.dismiss()">
+            <ion-icon slot="icon-only" ios="close-outline" md="close-sharp"></ion-icon>
+          </ion-button>
+        </ion-buttons>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content class="ion-padding">
+      <div class="ion-margin-top">
+        <form [formGroup]="propoForm" (ngSubmit)="propositionForm()">
+          <div class="input-propo d-f-c">
+            <ion-icon slot="icon-only" ios="location-outline" md="location-sharp"></ion-icon>
+            <ion-input type="number" placeholder="" required label="Prix" labelPlacement="floating"
+              formControlName="prix"></ion-input>
+          </div>
+          <div class="input-propo d-f-c">
+            <ion-icon name="chatbox-ellipses-outline"></ion-icon>
+            <ion-input type="text" placeholder="" required label="Commentaire" labelPlacement="floating"
+              formControlName="commentaire"></ion-input>
+          </div>
+
+          <div class="  btn d-f-c">
+            <ion-button block color="purple" type="submit" [disabled]="searchForm.invalid">
+              Envoyer
+            </ion-button>
+          </div>
+        </form>
+
+      </div>
+    </ion-content>
+  </ng-template>
+</ion-modal>
