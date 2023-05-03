@@ -32,6 +32,9 @@
 
         ion-card-header {
             flex-direction: row;
+            background: var(--ion-color-header-trajet);
+            height: 40px;
+            margin-bottom: 8px;
 
             ion-avatar {
                 height: 30px;
@@ -80,7 +83,7 @@
                     .arrive {
                         padding: 5px;
                         background: var(--ion-color-purple);
-                        color:white;
+                        color: white;
                         min-width: max-content;
                     }
                 }
@@ -103,7 +106,7 @@
 
                     b {
                         color: var(--ion-color-purple);
-                        margin-inline: 5px; 
+                        margin-inline: 5px;
                         box-shadow: 1px 1px 10px var(--ion-color-box-shadow);
                         padding-inline: 3px;
                     }
@@ -130,7 +133,7 @@
                 }
 
                 .place-dispo {
-                    font-size: 18px;
+                    font-size: 14px;
                     color: var(--ion-color-light-contrast);
                     width: 50%;
                 }
@@ -144,12 +147,13 @@
                     color: white;
                     width: 50%;
                     height: 100%;
+                    font-size: 12px;
                 }
             }
         }
     }
 
-    
+
     .fab-button {
         display: flex;
         justify-content: end;
@@ -159,6 +163,8 @@
 
         ion-fab-button {
             --background: var(--ion-color-purple);
+            height: 50px;
+            width: 50px;
 
             ion-icon {
                 font-size: 2.5rem;
@@ -213,4 +219,34 @@ ion-modal {
 
 ion-modal#modal-search {
     --border-radius: 30px 30px 0 0;
+}
+
+ion-toast.custom-toast {
+    --background: #00f50093 !important;
+    --color: rgb(255, 255, 255) !important;
+}
+
+// ======================== Breackpoints ==========================
+
+
+
+@media (max-width: 440px) {
+    ion-card {
+        ion-card-content {
+            .container-card {
+                display: grid;
+                justify-content: center;
+            }
+        }
+
+        ion-img {
+            max-width: 18rem !important;
+            margin-right: 0 !important;
+            margin-bottom: 10px;
+        }
+
+        .covoi-detail {
+            width: 100% !important;
+        }
+    }
 }

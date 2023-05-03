@@ -36,3 +36,8 @@
 * {
     font-family: 'Inter', sans-serif;
 }
+
+ion-toast.custom-toast {
+    --background: #00f50093 !important;
+    --color: rgb(255, 255, 255) !important;
+  }

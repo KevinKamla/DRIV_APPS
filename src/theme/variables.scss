@@ -96,6 +96,7 @@
   --ion-color-purple-text: #6A2171;
   --ion-color-input-icon: #b5b5b5;
   --ion-color-input-border: #c0c0c0;
+  --ion-color-header-trajet: #e0dfdf;
 
   .ion-color-purple {
     --ion-color-base: var(--ion-color-purple);
@@ -116,7 +117,7 @@
   }
 }
 
-@media (prefers-color-scheme: dark1) {
+@media (prefers-color-scheme: dark) {
   /*
    * Dark Colors
    * -------------------------------------------
@@ -191,6 +192,7 @@
     --ion-color-purple: #b607b6;
     --ion-color-input-icon: #2a2a2a;
     --ion-color-input-border: #6e6e6e;
+    --ion-color-header-trajet: #0e0e0e;
   }
 
   /*

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormControl, FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { IonicModule } from '@ionic/angular';
+import { IonicModule, ModalController } from '@ionic/angular';
 import { RouterLink } from '@angular/router';
 
 @Component({
@@ -13,11 +13,13 @@ import { RouterLink } from '@angular/router';
 })
 export class TrajetsPage implements OnInit {
 
-  constructor() { }
+  constructor(
+    private modal: ModalController) { }
 
+  isToastOpen: boolean = false
   user_note: number = 3
 
-  
+
   searchForm = new FormGroup({
     depart: new FormControl(),
     arrive: new FormControl(),
@@ -28,7 +30,15 @@ export class TrajetsPage implements OnInit {
   }
 
   Searche() {
+    this.modal.dismiss();
+  }
+  
+  reserver() {
+    this.openToast(true);
+  }
 
+  openToast(value: boolean) {
+    this.isToastOpen = value
   }
 
   ngOnInit() {

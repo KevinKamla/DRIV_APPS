@@ -11,14 +11,14 @@
     <p>Enter the code sent to +1(xxx) xxx-xxx</p>
     <form action="" method="post" (ngSubmit)="onSubmit()" [formGroup]="myGroup">
       <div class="d-f-s">
-        <ion-input type="number" maxlength="1" label="" required formControlName="code1"></ion-input>
-        <ion-input type="number" maxlength="1" label="" required formControlName="code2"></ion-input>
-        <ion-input type="number" maxlength="1" label="" required formControlName="code3"></ion-input>
-        <ion-input type="number" maxlength="1" label="" required formControlName="code4"></ion-input>
-        <ion-input type="number" maxlength="1" label="" required formControlName="code5"></ion-input>
-        <ion-input type="number" maxlength="1" label="" required formControlName="code6"></ion-input>
+        <ion-input type="number" maxlength="1" label="" [(ngModel)]="code[0]" required formControlName="code1"></ion-input>
+        <ion-input type="number" maxlength="1" label="" [(ngModel)]="code[1]" required formControlName="code2"></ion-input>
+        <ion-input type="number" maxlength="1" label="" [(ngModel)]="code[2]" required formControlName="code3"></ion-input>
+        <ion-input type="number" maxlength="1" label="" [(ngModel)]="code[3]" required formControlName="code4"></ion-input>
+        <ion-input type="number" maxlength="1" label="" [(ngModel)]="code[4]" required formControlName="code5"></ion-input>
+        <ion-input type="number" maxlength="1" label="" [(ngModel)]="code[5]" required formControlName="code6"></ion-input>
       </div>
-      <ion-button expand="block" [routerLink]="['../home']" type="" [disabled]="myGroup.invalid">Submit</ion-button>
+      <ion-button expand="block" type="" [disabled]="myGroup.invalid">Submit</ion-button>
     </form>
     <div class="policy">
       <p>Didn't receive code ?<b>Privacy Policy</b></p>

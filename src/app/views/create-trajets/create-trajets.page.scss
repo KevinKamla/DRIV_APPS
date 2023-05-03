@@ -157,45 +157,17 @@ ion-content {
                     margin-block: 5px;
                 }
 
-
-                .heure {
-                    width: 100%;
-                    gap: 9px;
-
-                    b {
-                        font-size: 20px;
-                    }
-
-                    p {
-                        font-size: 20px;
-                    }
-
-                    ion-input {
-                        width: 55px;
-                        border: 1px solid var(--ion-color-input-border);
-                        border-radius: 10px;
-                        height: 47px !important;
-                        font-size: 20px;
-                    }
-                }
-
-                .date_detail {
-                    ion-icon {
-                        font-size: 18px;
-                        margin-inline: 5px;
-                    }
-
+                ion-datetime-button {
                     margin-block: 10px;
-                    color: var(--ion-color-light-contrast);
-                    font-weight: 600;
-                    font-size: 14px;
                 }
 
+                
                 .input-prix {
-                    width: 50%;
+                    width: 55%;
                     border: 1px solid var(--ion-color-input-border);
                     border-radius: 10px;
                     background: var(--ion-color-input-border);
+                    height: 35px;
 
                     ion-input {
                         border: none;

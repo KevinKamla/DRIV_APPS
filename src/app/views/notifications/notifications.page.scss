@@ -60,7 +60,6 @@ ion-content {
 
 
                         ion-avatar {
-                            height: 6rem;
                             margin-left: 12px;
                         }
 
@@ -129,11 +128,12 @@ ion-content {
 
                         ion-button {
                             color: var(--ion-color-dark);
-                            font-size: 12px;
+                            font-size: 11px;
                         }
                         ion-icon {
                             color: var(--ion-color-green);
-                            font-size: 25px;
+                            font-size: 20px;
+                            margin-right: 5px;
                         }
 
                         .btn2 {

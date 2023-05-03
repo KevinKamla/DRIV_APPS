@@ -16,6 +16,7 @@ export class GetCodeNumberPage implements OnInit {
   constructor() { }
 
 
+  code: Array<number> = new Array(6);
   myGroup = new FormGroup({
     code1: new FormControl(),
     code2: new FormControl(),
@@ -27,6 +28,8 @@ export class GetCodeNumberPage implements OnInit {
 
   onSubmit() {
 
+    console.log("Code à 6 chiffres : " + this.code.join(''));
+    console.log("Code à 6 chiffres : ", this.myGroup.get("code1")?.value);
   }
   ngOnInit() {
   }

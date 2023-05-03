@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormControl, FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { IonicModule, AnimationController  } from '@ionic/angular';
+import { IonicModule, AnimationController, ModalController } from '@ionic/angular';
 import { RouterLink } from '@angular/router';
 
 @Component({
@@ -13,12 +13,14 @@ import { RouterLink } from '@angular/router';
 })
 export class AnnoncesPage implements OnInit {
 
-  type: string = "Annonces";
-
   constructor(
-    private animationCtrl : AnimationController 
+    private animationCtrl: AnimationController,
+    private modal: ModalController
   ) { }
-
+  type: string = "Annonces";
+  isToastOpen: boolean = false
+  isToastOpenPropo: boolean = false
+  nbPlace: number = 1;
 
   searchForm = new FormGroup({
     depart: new FormControl(),
@@ -31,17 +33,36 @@ export class AnnoncesPage implements OnInit {
     commentaire: new FormControl(),
   });
 
-  closeModal() {
+
+
+  Search() {
+    this.modal.dismiss();
+
   }
-
-  Searche() {
-
+ 
+  participerCovoiturage() {
+    this.openToast(true);
+      this.nbPlace += 1;
+    
   }
-
+  
   propositionForm() {
+    this.modal.dismiss();
+    this.openToastPropo(true);
+
 
   }
 
+  // ====================================== les toasts =================================
+  openToast(value: boolean) {
+    this.isToastOpen = value;
+  }
+
+  openToastPropo(value: boolean) {
+    this.isToastOpenPropo = value;
+  }
+
+  // =================== Annimation des modals ============================
 
   enterAnimation = (baseEl: HTMLElement) => {
     const root = baseEl.shadowRoot;
@@ -70,6 +91,9 @@ export class AnnoncesPage implements OnInit {
   leaveAnimation = (baseEl: HTMLElement) => {
     return this.enterAnimation(baseEl).direction('reverse');
   };
+
+
+
 
 
   ngOnInit() {

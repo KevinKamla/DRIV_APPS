@@ -6,12 +6,18 @@
 
 ion-toolbar {
   --ion-background-color: #ffffff;
+  padding: 16px;
 }
 
 ion-title {
   color: var(--ion-color-purple-text);
   font-weight: 900;
   font-size: 30px;
+  margin-top: 15px;
+}
+
+ion-buttons{
+  margin-top: 15px;
 }
 
 .bg-button2,

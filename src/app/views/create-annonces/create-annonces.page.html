@@ -9,7 +9,7 @@
 
 <ion-content [fullscreen]="true">
   <ion-card>
-    <form action="" method="post" [formGroup]="myGroup">
+    <form action="" method="post" [formGroup]="myGroup" (ngSubmit)="onSubmit()">
       <div class="map_info d-f-s">
         <div class="map_icon d-g">
           <ion-icon name="ellipse-outline"></ion-icon>
@@ -47,44 +47,30 @@
             <ion-icon slot="icon-only" name="add"></ion-icon>
           </ion-button>
         </ion-buttons>
-        <ion-input type="date" label="Date de départ" required formControlName="dateDepart"
-          labelPlacement="floating"></ion-input>
-        <div class="heure d-f">
-          <ion-input type="number" label="" [maxlength]="2" [min]="00" [max]="24" required formControlName="heureDepart"></ion-input><p class="d-f-c">h</p>
-          <b class="d-f-c">:</b>
-          <ion-input type="number" label="" [maxlength]="2" [min]="00" [max]="59" required formControlName="minuteDepart"></ion-input><p class="d-f-c">min</p>
-        </div>
+        <ion-label>Date de départ:</ion-label>
+        <ion-datetime-button datetime="datetimeDepart" required></ion-datetime-button>
+        <ion-label>Date de d'arrivé:</ion-label>
+        <ion-datetime-button datetime="datetimeArrive" required></ion-datetime-button>
 
-        <!-- 
-        <div class="date_detail d-f">
-          <ion-icon name="calendar-outline"></ion-icon>
-          Lundi 12 dec 2022
-          <ion-icon name="time-outline"></ion-icon>
-          04h00
-        </div> -->
-
-        <ion-input type="date" label="Date d'arrivé" required formControlName="dateArrive"
-          labelPlacement="floating"></ion-input>
-        <div class="heure d-f">
-          <ion-input type="number" label="" [maxlength]="2" [min]="00" [max]="24" required formControlName="heureArrive"></ion-input><p class="d-f-c">h</p>
-          <b class="d-f-c">:</b>
-          <ion-input type="number" label="" [maxlength]="2" [min]="00" [max]="59" required formControlName="minuteArrive"></ion-input><p class="d-f-c">min</p>
-        </div>
-
-        <!-- <div class="date_detail d-f">
-          <ion-icon name="calendar-outline"></ion-icon>
-          Lundi 12 dec 2022
-          <ion-icon name="time-outline"></ion-icon>
-          04h00
-        </div> -->
-
+        <ion-modal [keepContentsMounted]="true">
+          <ng-template>
+            <ion-datetime #dateDepart id="datetimeDepart"></ion-datetime>
+          </ng-template>
+        </ion-modal>
+        <ion-modal [keepContentsMounted]="true">
+          <ng-template>
+            <ion-datetime #dateArrive id="datetimeArrive"></ion-datetime>
+          </ng-template>
+        </ion-modal>
       </div>
       <div class="  btn d-f-c">
-        <ion-button block color="purple" type="" [disabled]="myGroup.invalid">
+        <ion-button block color="purple" type="submit" [disabled]="myGroup.invalid">
           Valider
         </ion-button>
       </div>
     </form>
 
   </ion-card>
+  <ion-toast [isOpen]="isToastOpen" message="Annonce créé avec succès" color="success" [duration]="3000" (didDismiss)="openToast(false)"
+    icon="checkmark-sharp"></ion-toast>
 </ion-content>

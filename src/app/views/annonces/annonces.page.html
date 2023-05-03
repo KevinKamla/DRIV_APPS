@@ -23,15 +23,15 @@
           <ion-icon name="time-outline"></ion-icon>
           04h00
           <ion-icon name="people-outline"></ion-icon>
-          02
+          {{nbPlace}}
         </div>
         <div class="card_footer d-f-s">
           <span class="destination">Ottawa, ON</span>
           <ion-buttons class="d-f-c">
-            <ion-button class="btn-sugg"  id="open-modal-propo">
+            <ion-button class="btn-sugg" id="open-modal-propo">
               <ion-icon name="hand-left"></ion-icon>
             </ion-button>
-            <ion-button class="btn-add" shape="round">
+            <ion-button class="btn-add" shape="round" (click)="participerCovoiturage()">
               <ion-icon name="add-circle"></ion-icon>
             </ion-button>
           </ion-buttons>
@@ -62,10 +62,10 @@
         <div class="card_footer d-f-s">
           <span class="destination">Ottawa, ON</span>
           <ion-buttons class="d-f-c">
-            <ion-button class="btn-sugg">
+            <ion-button class="btn-sugg" id="open-modal-propo">
               <ion-icon name="hand-left"></ion-icon>
             </ion-button>
-            <ion-button class="btn-add" shape="round">
+            <ion-button class="btn-add" shape="round" (click)="participerCovoiturage()">
               <ion-icon name="add-circle"></ion-icon>
             </ion-button>
           </ion-buttons>
@@ -180,13 +180,19 @@
       <ion-icon name="add"></ion-icon>
     </ion-fab-button>
   </div>
+
+  <ion-toast [isOpen]="isToastOpen" message="Votre besoin de covoiturage a été envoyé avec succès" [duration]="3000"
+    (didDismiss)="openToast(false)" icon="checkmark-sharp" color="success"></ion-toast>
+    
+    <ion-toast [isOpen]="isToastOpenPropo" message="Votre proposition a été envoyé avec succès" [duration]="3000"
+    (didDismiss)="openToastPropo(false)" icon="checkmark-sharp" color="success"></ion-toast>
 </div>
 
 
 <!-- ============================= Modal search ========================== -->
 
-<ion-modal trigger="open-modal-search" id="modal-search" #modal [initialBreakpoint]="0.5" [breakpoints]="[0, 0.25, 0.5, 0.75, 1]"
-  handleBehavior="cycle"  [presentingElement]="">
+<ion-modal trigger="open-modal-search" id="modal-search" #modal [initialBreakpoint]="0.5"
+  [breakpoints]="[0, 0.25, 0.5, 0.75, 1]" handleBehavior="cycle" [presentingElement]="">
   <ng-template>
     <ion-header [translucent]="true" class="ion-no-border">
       <ion-toolbar color="purple">
@@ -200,7 +206,7 @@
     </ion-header>
     <ion-content class="ion-padding">
       <div class="ion-margin-top">
-        <form [formGroup]="searchForm" (ngSubmit)="Searche()">
+        <form [formGroup]="searchForm" (ngSubmit)="Search()">
           <div class="input-search d-f-c">
             <ion-icon slot="icon-only" ios="location-outline" md="location-outline"></ion-icon>
             <ion-input type="text" placeholder="" required label="Départ" labelPlacement="floating"
@@ -208,7 +214,7 @@
           </div>
           <div class="input-search d-f-c">
             <ion-icon slot="icon-only" ios="location-outline" md="location-outline"></ion-icon>
-            <ion-input type="text" placeholder="" required label="Départ" labelPlacement="floating"
+            <ion-input type="text" placeholder="" required label="Arrivé" labelPlacement="floating"
               formControlName="arrive"></ion-input>
           </div>
           <div class="d-f-c">
@@ -234,7 +240,8 @@
 
 <!-- ============================= Modal proposition ========================== -->
 
-<ion-modal trigger="open-modal-propo" id="modal-propo" #modale  handleBehavior="cycle"  [initialBreakpoint]="0.5" [enterAnimation]="enterAnimation" [leaveAnimation]="leaveAnimation">
+<ion-modal trigger="open-modal-propo" id="modal-propo" #modale handleBehavior="cycle" [initialBreakpoint]="0.5"
+  [enterAnimation]="enterAnimation" [leaveAnimation]="leaveAnimation">
   <ng-template>
     <ion-header [translucent]="true" class="ion-no-border">
       <ion-toolbar color="purple">
@@ -250,7 +257,7 @@
       <div class="ion-margin-top">
         <form [formGroup]="propoForm" (ngSubmit)="propositionForm()">
           <div class="input-propo d-f-c">
-            <ion-icon slot="icon-only" ios="location-outline" md="location-sharp"></ion-icon>
+            <b>$</b>
             <ion-input type="number" placeholder="" required label="Prix" labelPlacement="floating"
               formControlName="prix"></ion-input>
           </div>
@@ -261,7 +268,7 @@
           </div>
 
           <div class="  btn d-f-c">
-            <ion-button block color="purple" type="submit" [disabled]="searchForm.invalid">
+            <ion-button block color="purple" (click)="propositionForm()" type="submit" [disabled]="searchForm.invalid">
               Envoyer
             </ion-button>
           </div>

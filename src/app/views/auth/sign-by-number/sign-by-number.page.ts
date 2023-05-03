@@ -15,7 +15,7 @@ import { RouterLink } from '@angular/router';
 export class SignByNumberPage implements OnInit {
 
   constructor(
-    // private myGroup: FormGroup
+    
   ) { }
 
   myGroup = new FormGroup({

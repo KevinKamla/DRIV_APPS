@@ -9,7 +9,7 @@
 
 <ion-content [fullscreen]="true">
   <ion-card>
-    <form action="" method="post" [formGroup]="myGroup">
+    <form action="" method="post" [formGroup]="myGroup" (ngSubmit)="onSubmit()">
       <div class="map_info d-f-s">
         <div class="map_icon d-g">
           <ion-icon name="ellipse-outline"></ion-icon>
@@ -47,57 +47,34 @@
             <ion-icon slot="icon-only" name="add"></ion-icon>
           </ion-button>
         </ion-buttons>
-        <ion-input type="date" label="Date de départ" required formControlName="dateDepart"
-          labelPlacement="floating"></ion-input>
-        <div class="heure d-f">
-          <ion-input type="number" label="" [maxlength]="2" [min]="00" [max]="24" required
-            formControlName="heureDepart"></ion-input>
-          <p class="d-f-c">h</p>
-          <b class="d-f-c">:</b>
-          <ion-input type="number" label="" [maxlength]="2" [min]="00" [max]="59" required
-            formControlName="minuteDepart"></ion-input>
-          <p class="d-f-c">min</p>
-        </div>
+        <ion-label>Date de départ:</ion-label>
+        <ion-datetime-button datetime="datetimeDepart" required></ion-datetime-button>
+        <ion-label>Date de d'arrivé:</ion-label>
+        <ion-datetime-button datetime="datetimeArrive" required></ion-datetime-button>
 
-        <!-- 
-        <div class="date_detail d-f">
-          <ion-icon name="calendar-outline"></ion-icon>
-          Lundi 12 dec 2022
-          <ion-icon name="time-outline"></ion-icon>
-          04h00
-        </div> -->
-
-        <ion-input type="date" label="Date d'arrivé" required formControlName="dateArrive"
-          labelPlacement="floating"></ion-input>
-        <div class="heure d-f">
-          <ion-input type="number" label="" [maxlength]="2" [min]="00" [max]="24" required
-            formControlName="heureArrive"></ion-input>
-          <p class="d-f-c">h</p>
-          <b class="d-f-c">:</b>
-          <ion-input type="number" label="" [maxlength]="2" [min]="00" [max]="59" required
-            formControlName="minuteArrive"></ion-input>
-          <p class="d-f-c">min</p>
-        </div>
-
-        <!-- <div class="date_detail d-f">
-          <ion-icon name="calendar-outline"></ion-icon>
-          Lundi 12 dec 2022
-          <ion-icon name="time-outline"></ion-icon>
-          04h00
-        </div> -->
         <ion-label>Tarif du trajet</ion-label>
         <div class="d-f" style="align-items: center;">
-          <span>$</span><div class="input-prix d-f-c"> <ion-input type="number" placeholder="0.00" required label=""
-            formControlName="prix"></ion-input> <span>cad</span></div>
+          <span>$</span>
+          <div class="input-prix d-f-c"> <ion-input type="number" placeholder="0.00" required label=""
+              formControlName="prix"></ion-input> <span>cad</span></div>
         </div>
         <ion-label>Commentaire</ion-label>
         <div class="d-f-c">
           <ion-icon name="chatbox-ellipses-outline"></ion-icon>
           <ion-input type="text" placeholder="Taper ici ..." label="" formControlName="commentaire"></ion-input>
-          <!-- <ion-item>
-            <ion-label>Toggle</ion-label>
-            <ion-toggle slot="end" (ionChange)="ceeve($event)"></ion-toggle>
-          </ion-item> -->
+
+
+          <ion-modal [keepContentsMounted]="true">
+            <ng-template>
+              <ion-datetime #dateDepart id="datetimeDepart"></ion-datetime>
+            </ng-template>
+          </ion-modal>
+          <ion-modal [keepContentsMounted]="true">
+            <ng-template>
+              <ion-datetime #dateArrive id="datetimeArrive"></ion-datetime>
+            </ng-template>
+          </ion-modal>
+
         </div>
       </div>
       <div class="  btn d-f-c">
@@ -108,4 +85,13 @@
     </form>
 
   </ion-card>
+
+  <ion-toast [isOpen]="isToastOpen" message="Trajet créé avec succès" color="success" [duration]="3000" (didDismiss)="openToast(false)"
+    icon="checkmark-sharp"></ion-toast>
 </ion-content>
+
+
+<!-- <ion-item>
+            <ion-label>Toggle</ion-label>
+            <ion-toggle slot="end" (ionChange)="ceeve($event)"></ion-toggle>
+          </ion-item> -->
