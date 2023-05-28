@@ -2,7 +2,8 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormControl, FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AlertController, IonicModule } from '@ionic/angular';
-import { RouterLink } from '@angular/router';
+import { ActivatedRoute, RouterLink } from '@angular/router';
+import { ItineraryService } from 'src/app/services/itinerary.service';
 
 @Component({
   selector: 'app-create-trajets',
@@ -17,10 +18,12 @@ export class CreateTrajetsPage implements OnInit {
   @ViewChild('dateArrive') dateArrive: any;
 
   constructor(
-    private alertCtrl: AlertController
+    private alertCtrl: AlertController,
+    private itineraryService: ItineraryService,
+    private route: ActivatedRoute
   ) { }
 
-
+  user: any = null;
   nombrePlace: number = 0;
   isToastOpen: boolean = false
   myGroup = new FormGroup({
@@ -50,11 +53,25 @@ export class CreateTrajetsPage implements OnInit {
   }
 
   onSubmit() {
+    const userId = this.route.snapshot.paramMap.get('id');
     if (this.dateDepart.value != undefined && this.dateArrive.value != undefined) {
-      const date: any = this.dateDepart.value.split("T");
-      const heure: any = this.dateArrive.value.split("T");
-      console.log("dateDepart : ", date)
-      console.log("dateArrive : ", heure)
+      let body = {
+        price: this.myGroup.get('prix')?.value,
+        departureDate: this.dateDepart.value, 
+        seatAvailable: this.nombrePlace,
+        departureAddressId: 5,
+        conductorId: 1,
+        itineraryCategoryID: 2,
+        arrivalAddressId: userId
+      }
+
+      this.itineraryService.post("itinerary", body).subscribe((response) => {
+        console.log(response);
+      },
+      (error) => {
+        console.log("Erreur de requette");
+      });
+
       this.openToast(true);
     } else {
       this.openDialogDate()
@@ -80,7 +97,8 @@ export class CreateTrajetsPage implements OnInit {
   //   console.log("toggle change : ", e.detail.checked)
   // }
 
-  ngOnInit() {
+  async ngOnInit() {
+
   }
 
 }

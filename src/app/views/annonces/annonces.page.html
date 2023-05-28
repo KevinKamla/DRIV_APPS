@@ -5,28 +5,29 @@
   </ion-button>
 </div>
 <div class="annonces" #page>
-  <ion-card>
+  <ion-card *ngFor="let item of announcesList">
     <ion-card-header>
       <span>BESOIN DE COVOITURAGE</span>
     </ion-card-header>
     <ion-card-content class="d-f">
       <div class="map_icon d-g">
-        <ion-icon name="ellipse-outline"></ion-icon>
+        <!--   <ion-icon name="ellipse-outline"></ion-icon> -->
+        <div class="d-f-c">
+          <ion-avatar>
+              <img src={{item.passenger.profilePicture}}/>
+          </ion-avatar>
+        </div>
         <ion-icon class="point" name="ellipsis-vertical-outline"></ion-icon>
         <ion-icon name="location-outline"></ion-icon>
       </div>
       <div class="map_info d-b">
-        <div class="origine">Moncton, NB</div>
+        <div class="origine"> {{item.announce.departureAddress.ville}}, {{item.announce.departureAddress.province}} </div> 
         <div class="date_detail d-f">
-          <ion-icon name="calendar-outline"></ion-icon>
-          Lundi 12 dec 2022
-          <ion-icon name="time-outline"></ion-icon>
-          04h00
-          <ion-icon name="people-outline"></ion-icon>
-          {{nbPlace}}
+          <ion-icon name="calendar-outline"></ion-icon> {{item.announce.departureDate}}  | 
+          <ion-icon name="people-outline"></ion-icon> {{nbPlace}}
         </div>
         <div class="card_footer d-f-s">
-          <span class="destination">Ottawa, ON</span>
+          <span class="destination">{{item.announce.arrivalAddress.ville}}, {{item.announce.arrivalAddress.province}}</span>
           <ion-buttons class="d-f-c">
             <ion-button class="btn-sugg" id="open-modal-propo">
               <ion-icon name="hand-left"></ion-icon>
@@ -39,144 +40,15 @@
       </div>
     </ion-card-content>
   </ion-card>
-  <ion-card>
-    <ion-card-header>
-      <span>BESOIN DE COVOITURAGE</span>
-    </ion-card-header>
-    <ion-card-content class="d-f">
-      <div class="map_icon d-g">
-        <ion-icon name="ellipse-outline"></ion-icon>
-        <ion-icon class="point" name="ellipsis-vertical-outline"></ion-icon>
-        <ion-icon name="location-outline"></ion-icon>
-      </div>
-      <div class="map_info d-b">
-        <div class="origine">Moncton, NB</div>
-        <div class="date_detail d-f">
-          <ion-icon name="calendar-outline"></ion-icon>
-          Lundi 12 dec 2022
-          <ion-icon name="time-outline"></ion-icon>
-          04h00
-          <ion-icon name="people-outline"></ion-icon>
-          02
-        </div>
-        <div class="card_footer d-f-s">
-          <span class="destination">Ottawa, ON</span>
-          <ion-buttons class="d-f-c">
-            <ion-button class="btn-sugg" id="open-modal-propo">
-              <ion-icon name="hand-left"></ion-icon>
-            </ion-button>
-            <ion-button class="btn-add" shape="round" (click)="participerCovoiturage()">
-              <ion-icon name="add-circle"></ion-icon>
-            </ion-button>
-          </ion-buttons>
-        </div>
-      </div>
-    </ion-card-content>
-  </ion-card>
-  <ion-card>
-    <ion-card-header>
-      <span>BESOIN DE COVOITURAGE</span>
-    </ion-card-header>
-    <ion-card-content class="d-f">
-      <div class="map_icon d-g">
-        <ion-icon name="ellipse-outline"></ion-icon>
-        <ion-icon class="point" name="ellipsis-vertical-outline"></ion-icon>
-        <ion-icon name="location-outline"></ion-icon>
-      </div>
-      <div class="map_info d-b">
-        <div class="origine">Moncton, NB</div>
-        <div class="date_detail d-f">
-          <ion-icon name="calendar-outline"></ion-icon>
-          Lundi 12 dec 2022
-          <ion-icon name="time-outline"></ion-icon>
-          04h00
-          <ion-icon name="people-outline"></ion-icon>
-          02
-        </div>
-        <div class="card_footer d-f-s">
-          <span class="destination">Ottawa, ON</span>
-          <ion-buttons class="d-f-c">
-            <ion-button class="btn-sugg">
-              <ion-icon name="hand-left"></ion-icon>
-            </ion-button>
-            <ion-button class="btn-add" shape="round">
-              <ion-icon name="add-circle"></ion-icon>
-            </ion-button>
-          </ion-buttons>
-        </div>
-      </div>
-    </ion-card-content>
-  </ion-card>
-  <ion-card>
-    <ion-card-header>
-      <span>BESOIN DE COVOITURAGE</span>
-    </ion-card-header>
-    <ion-card-content class="d-f">
-      <div class="map_icon d-g">
-        <ion-icon name="ellipse-outline"></ion-icon>
-        <ion-icon class="point" name="ellipsis-vertical-outline"></ion-icon>
-        <ion-icon name="location-outline"></ion-icon>
-      </div>
-      <div class="map_info d-b">
-        <div class="origine">Moncton, NB</div>
-        <div class="date_detail d-f">
-          <ion-icon name="calendar-outline"></ion-icon>
-          Lundi 12 dec 2022
-          <ion-icon name="time-outline"></ion-icon>
-          04h00
-          <ion-icon name="people-outline"></ion-icon>
-          02
-        </div>
-        <div class="card_footer d-f-s">
-          <span class="destination">Ottawa, ON</span>
-          <ion-buttons class="d-f-c">
-            <ion-button class="btn-sugg">
-              <ion-icon name="hand-left"></ion-icon>
-            </ion-button>
-            <ion-button class="btn-add" shape="round">
-              <ion-icon name="add-circle"></ion-icon>
-            </ion-button>
-          </ion-buttons>
-        </div>
-      </div>
-    </ion-card-content>
-  </ion-card>
-  <ion-card>
-    <ion-card-header>
-      <span>BESOIN DE COVOITURAGE</span>
-    </ion-card-header>
-    <ion-card-content class="d-f">
-      <div class="map_icon d-g">
-        <ion-icon name="ellipse-outline"></ion-icon>
-        <ion-icon class="point" name="ellipsis-vertical-outline"></ion-icon>
-        <ion-icon name="location-outline"></ion-icon>
-      </div>
-      <div class="map_info d-b">
-        <div class="origine">Moncton, NB</div>
-        <div class="date_detail d-f">
-          <ion-icon name="calendar-outline"></ion-icon>
-          Lundi 12 dec 2022
-          <ion-icon name="time-outline"></ion-icon>
-          04h00
-          <ion-icon name="people-outline"></ion-icon>
-          02
-        </div>
-        <div class="card_footer d-f-s">
-          <span class="destination">Ottawa, ON</span>
-          <ion-buttons class="d-f-c">
-            <ion-button class="btn-sugg">
-              <ion-icon name="hand-left"></ion-icon>
-            </ion-button>
-            <ion-button class="btn-add" shape="round">
-              <ion-icon name="add-circle"></ion-icon>
-            </ion-button>
-          </ion-buttons>
-        </div>
-      </div>
-    </ion-card-content>
-  </ion-card>
-  <div class="fab-button">
-    <ion-fab-button [routerLink]="['../create-annonces']">
+
+  <!--<div class="fab-button" *ngIf="user?.type === 'Passenger'">
+    <ion-fab-button [routerLink]="['/create-annonces/'+user?.id]">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </div>-->
+
+  <div class="fab-button" *ngIf="user?.type === 'Passenger'">
+    <ion-fab-button [routerLink]="['/create-annonces/'+user?.id]">
       <ion-icon name="add"></ion-icon>
     </ion-fab-button>
   </div>

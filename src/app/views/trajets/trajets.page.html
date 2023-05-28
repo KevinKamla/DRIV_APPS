@@ -5,11 +5,11 @@
       </ion-button>
 </div>
 <div class="trajets">
-      <ion-card>
+      <ion-card *ngFor="let item of itineraryList">
             <ion-card-header class="d-f-s">
                   <div class="avatart-label d-f-c">
                         <ion-avatar>
-                              <img src="../../../assets/icon/brice.jpg" />
+                              <img src={{item.conductor.profilePicture}}/>
                         </ion-avatar>
                         <ion-label>Offre de covoiturage</ion-label>
                   </div>
@@ -19,20 +19,19 @@
             </ion-card-header>
             <ion-card-content class="">
                   <div class="container-card d-f-s">
-                        <ion-img src="../../../assets/icon/1.jpg"></ion-img>
+                        <ion-img src="../../../assets/icon/{{item.arrivalAddress.ville}}.jpg" height="700px"></ion-img>
                         <div class="covoi-detail">
                               <div class="trajet d-f-s">
-                                    <div class="depart">Bathurst, NB</div>
+                                    <div class="depart">{{item.departureAddress.ville}}, {{item.departureAddress.province}}</div>
                                     <ion-icon name="arrow-forward-outline"></ion-icon>
-                                    <div class="arrive">Montréal, QC</div>
+                                    <div class="arrive">{{item.arrivalAddress.ville}}, {{item.arrivalAddress.province}}</div>
                               </div>
                               <div class="date_detail d-f">
-                                    <ion-icon name="calendar-outline"></ion-icon>
-                                    Lundi 12 dec 2022
+                                    <ion-icon name="calendar-outline"></ion-icon> {{item.departureDate}} 
                               </div>
                               <div class="more-info d-f-s">
-                                    <span class=" span d-f"><ion-icon name="time-outline"></ion-icon>04h00</span>
-                                    <b>$80CAD</b>
+                                    <!--<span class=" span d-f"><ion-icon name="time-outline"></ion-icon>04h00</span>-->
+                                    <b>{{item.price}} CAD</b>
                                     <div class="d-f">
                                           <span *ngFor="let item of [1,2,3,4,5]">
                                                 <ion-icon slot="start" name="star-sharp" class="star-sharp"
@@ -48,7 +47,7 @@
                   </div>
                   <div class="footer-card d-f-s">
                         <div class="place-dispo d-f-c">
-                              <ion-icon name="people-outline"></ion-icon> 02 disponibles
+                              <ion-icon name="people-outline"></ion-icon> {{item.seatAvailable}} disponibles
                         </div>
                         <ion-button fill="clear" (click)="reserver()">
                               <ion-icon name="calendar-outline"></ion-icon> Reserver
@@ -57,111 +56,9 @@
             </ion-card-content>
       </ion-card>
 
-      <ion-card>
-            <ion-card-header class="d-f-s">
-                  <div class="avatart-label d-f-c">
-                        <ion-avatar>
-                              <img src="../../../assets/icon/brice.jpg" />
-                        </ion-avatar>
-                        <ion-label>Offre de covoiturage</ion-label>
-                  </div>
-                  <ion-button fill="clear">
-                        <ion-icon slot="start" name="ellipsis-vertical-outline"></ion-icon>
-                  </ion-button>
-            </ion-card-header>
-            <ion-card-content class="">
-                  <div class="container-card d-f-s">
-                        <ion-img src="../../../assets/icon/3.jpg"></ion-img>
-                        <div class="covoi-detail">
-                              <div class="trajet d-f-s">
-                                    <div class="depart">Bathurst, NB</div>
-                                    <ion-icon name="arrow-forward-outline"></ion-icon>
-                                    <div class="arrive">Montréal, QC</div>
-                              </div>
-                              <div class="date_detail d-f">
-                                    <ion-icon name="calendar-outline"></ion-icon>
-                                    Lundi 12 dec 2022
-                              </div>
-                              <div class="more-info d-f-s">
-                                    <span class=" span d-f"><ion-icon name="time-outline"></ion-icon>04h00</span>
-                                    <b>$80CAD</b>
-                                    <div class="d-f">
-                                          <span *ngFor="let item of [1,2,3,4,5]">
-                                                <ion-icon slot="start" name="star-sharp" class="star-sharp"
-                                                      *ngIf="item <= user_note; else otherIcon"></ion-icon>
-                                                <ng-template #otherIcon>
-                                                      <ion-icon slot="start" name="star-outline"
-                                                            class="star-outline"></ion-icon>
-                                                </ng-template>
-                                          </span>
-                                    </div>
-                              </div>
-                        </div>
-                  </div>
-                  <div class="footer-card d-f-s">
-                        <div class="place-dispo d-f-c">
-                              <ion-icon name="people-outline"></ion-icon> 02 disponibles
-                        </div>
-                        <ion-button fill="clear">
-                              <ion-icon name="calendar-outline"></ion-icon> Reserver
-                        </ion-button>
-                  </div>
-            </ion-card-content>
-      </ion-card>
-
-      <ion-card>
-            <ion-card-header class="d-f-s">
-                  <div class="avatart-label d-f-c">
-                        <ion-avatar>
-                              <img src="../../../assets/icon/brice.jpg" />
-                        </ion-avatar>
-                        <ion-label>Offre de covoiturage</ion-label>
-                  </div>
-                  <ion-button fill="clear">
-                        <ion-icon slot="start" name="ellipsis-vertical-outline"></ion-icon>
-                  </ion-button>
-            </ion-card-header>
-            <ion-card-content class="">
-                  <div class="container-card d-f-s">
-                        <ion-img src="../../../assets/icon/3.jpg"></ion-img>
-                        <div class="covoi-detail">
-                              <div class="trajet d-f-s">
-                                    <div class="depart">Bathurst, NB</div>
-                                    <ion-icon slot="start" name="ellipsis-horizontal-outline"></ion-icon>
-                                    <div class="arrive">Montréal, QC</div>
-                              </div>
-                              <div class="date_detail d-f">
-                                    <ion-icon name="calendar-outline"></ion-icon>
-                                    Lundi 12 dec 2022
-                              </div>
-                              <div class="more-info d-f-s">
-                                    <span class=" span d-f"><ion-icon name="time-outline"></ion-icon>04h00</span>
-                                    <b>$80CAD</b>
-                                    <div class="d-f">
-                                          <span *ngFor="let item of [1,2,3,4,5]">
-                                                <ion-icon slot="start" name="star-sharp" class="star-sharp"
-                                                      *ngIf="item <= user_note; else otherIcon"></ion-icon>
-                                                <ng-template #otherIcon>
-                                                      <ion-icon slot="start" name="star-outline"
-                                                            class="star-outline"></ion-icon>
-                                                </ng-template>
-                                          </span>
-                                    </div>
-                              </div>
-                        </div>
-                  </div>
-                  <div class="footer-card d-f-s">
-                        <div class="place-dispo d-f-c">
-                              <ion-icon name="people-outline"></ion-icon> 02Disponibles
-                        </div>
-                        <ion-button fill="clear">
-                              <ion-icon name="calendar-outline"></ion-icon> Reserver
-                        </ion-button>
-                  </div>
-            </ion-card-content>
-      </ion-card>
-      <div class="fab-button">
-            <ion-fab-button [routerLink]="['../create-trajets']">
+      
+      <div class="fab-button" *ngIf="user?.type === 'Conductor'">
+            <ion-fab-button [routerLink]="['/create-trajets/'+user?.id]" >
                   <ion-icon name="add"></ion-icon>
             </ion-fab-button>
       </div>

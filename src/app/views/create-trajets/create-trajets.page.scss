@@ -100,12 +100,12 @@ ion-content {
                     justify-content: start;
                     border-radius: 15px;
                     width: fit-content;
-                    margin-block: 10px;
+                    margin-block: 0px;
                     background: var(--ion-color-input-border);
-                    height: 26px;
+                    height: 30px;
 
                     ion-segment-button {
-                        min-width: 36px;
+                        min-width: 50px;
                         max-width: 0;
                         min-height: 0;
                         --background-checked: var(--ion-color-purple);
@@ -113,11 +113,10 @@ ion-content {
                         border-radius: 15px;
                         --color-checked: white;
 
-
                         ion-label {
                             margin: 0;
                             width: fit-content;
-                            font-size: 10px;
+                            font-size: 12px;
                         }
                     }
                 }
@@ -127,8 +126,7 @@ ion-content {
                 }
 
                 ion-buttons {
-                    margin-block: 10px;
-
+                    margin-block: 0px;
 
                     b {
                         margin-left: 6px;
@@ -149,7 +147,7 @@ ion-content {
                     }
                 }
 
-                ion-input {
+                ion-input, ion-textarea {
                     border: 1px solid var(--ion-color-input-border);
                     border-radius: 12px;
                     padding-inline: 9px !important;
@@ -163,11 +161,11 @@ ion-content {
 
                 
                 .input-prix {
-                    width: 55%;
+                    width: 60%;
                     border: 1px solid var(--ion-color-input-border);
                     border-radius: 10px;
-                    background: var(--ion-color-input-border);
-                    height: 35px;
+                    //background: var(--ion-color-input-border);
+                    height: 56px;
 
                     ion-input {
                         border: none;

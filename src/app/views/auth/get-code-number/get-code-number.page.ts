@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormControl, FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { IonicModule } from '@ionic/angular';
+import { IonicModule, NavController } from '@ionic/angular';
 import { RouterLink } from '@angular/router';
 
 @Component({
@@ -13,8 +13,7 @@ import { RouterLink } from '@angular/router';
 })
 export class GetCodeNumberPage implements OnInit {
 
-  constructor() { }
-
+  constructor(private navCtrl: NavController) { }
 
   code: Array<number> = new Array(6);
   myGroup = new FormGroup({
@@ -26,11 +25,18 @@ export class GetCodeNumberPage implements OnInit {
     code6: new FormControl(),
   });
 
+  
   onSubmit() {
-
     console.log("Code à 6 chiffres : " + this.code.join(''));
     console.log("Code à 6 chiffres : ", this.myGroup.get("code1")?.value);
+    /*const params = {
+      id: 1,
+      name: 'John Doe'
+    };
+    this.navCtrl.navigateForward('/nouvelle-page', { queryParams: params });*/
+    this.navCtrl.navigateForward('/home');
   }
+
   ngOnInit() {
   }
 

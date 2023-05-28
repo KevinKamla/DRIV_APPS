@@ -25,6 +25,11 @@
         color: white;
     }
 
+    .logo{
+        width: 150px;
+        height: 150px;
+    }
+
     .name_app {
         margin-bottom: 30px;
 
@@ -47,7 +52,7 @@
     .bloc_form {
         padding: 15px;        
         box-shadow: 0px 2px 10px var(--ion-color-box-shadow);
-        border-radius: 10px;
+        border-radius: 20px;
         margin: 20px;
 
         .sign_by_number {
@@ -135,6 +140,11 @@
                 height: 2rem;
                 width: 2rem;
             }
+        }
+
+        a {
+            text-decoration:none;
+            color: inherit;
         }
 
 

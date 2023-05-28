@@ -17,17 +17,15 @@
           <ion-icon name="location-outline"></ion-icon>
         </div>
         <div class="inputs">
-          <ion-input required formControlName="depart" type="text" label="Point de départ"
-            labelPlacement="floating"></ion-input>
-          <ion-input required formControlName="arrive" type="text" label="Destination"
-            labelPlacement="floating"></ion-input>
+          <ion-input required formControlName="depart" type="text" label="Point de départ" labelPlacement="floating"></ion-input>
+          <ion-input required formControlName="arrive" type="text" label="Destination" labelPlacement="floating"></ion-input>
         </div>
         <div class="icon-flech">
           <ion-icon name="swap-vertical-outline"></ion-icon>
         </div>
       </div>
       <div class="more_info">
-        <ion-label>Besoin d'un retour ?</ion-label>
+        <ion-label>Plannifier un retour ?</ion-label>
         <ion-segment value="Non" (ionChange)="segmentChanged($event)">
           <ion-segment-button value="Non">
             <ion-label>Non</ion-label>
@@ -35,35 +33,36 @@
           <ion-segment-button value="Oui">
             <ion-label>Oui</ion-label>
           </ion-segment-button>
-        </ion-segment>
-        <ion-label>Places disponibles:</ion-label>
+        </ion-segment><br/>
+        
+        <ion-label>Places disponibles: </ion-label>
         <ion-buttons slot="start">
           <ion-icon name="people-outline"></ion-icon>
           <ion-button shape="round" (click)="placeSubs()">
-            <ion-icon slot="icon-only" name="add"></ion-icon>
+            <ion-icon slot="icon-only" name="remove-outline"></ion-icon>
           </ion-button>
           <b> {{nombrePlace}}</b>
           <ion-button shape="round" (click)="placeAdd()">
             <ion-icon slot="icon-only" name="add"></ion-icon>
           </ion-button>
-        </ion-buttons>
-        <ion-label>Date de départ:</ion-label>
+        </ion-buttons><br/>
+
+        <ion-label>Date de départ: </ion-label>
         <ion-datetime-button datetime="datetimeDepart" required></ion-datetime-button>
-        <ion-label>Date de d'arrivé:</ion-label>
-        <ion-datetime-button datetime="datetimeArrive" required></ion-datetime-button>
+        <ion-label>Date de d'arrivé: </ion-label>
+        <ion-datetime-button datetime="datetimeArrive" required></ion-datetime-button><br/>
 
-        <ion-label>Tarif du trajet</ion-label>
+        <ion-label>Tarif du trajet: </ion-label>
         <div class="d-f" style="align-items: center;">
-          <span>$</span>
-          <div class="input-prix d-f-c"> <ion-input type="number" placeholder="0.00" required label=""
-              formControlName="prix"></ion-input> <span>cad</span></div>
-        </div>
-        <ion-label>Commentaire</ion-label>
+          <div class="input-prix d-f-c"> 
+            <ion-input type="number" placeholder="000" required label="" formControlName="prix"></ion-input>
+            <span>CAD</span>
+          </div>
+        </div><br/>
+
+        <ion-label>Commentaire: </ion-label>
         <div class="d-f-c">
-          <ion-icon name="chatbox-ellipses-outline"></ion-icon>
-          <ion-input type="text" placeholder="Taper ici ..." label="" formControlName="commentaire"></ion-input>
-
-
+          <ion-textarea autogrow="true" placeholder="Taper ici ..." formControlName="commentaire"></ion-textarea>
           <ion-modal [keepContentsMounted]="true">
             <ng-template>
               <ion-datetime #dateDepart id="datetimeDepart"></ion-datetime>
@@ -74,24 +73,24 @@
               <ion-datetime #dateArrive id="datetimeArrive"></ion-datetime>
             </ng-template>
           </ion-modal>
-
         </div>
       </div>
-      <div class="  btn d-f-c">
+      <div class="btn d-f-c">
         <ion-button block color="purple" type="" [disabled]="myGroup.invalid">
           Valider
         </ion-button>
-      </div>
+      </div><br/>
     </form>
 
   </ion-card>
 
   <ion-toast [isOpen]="isToastOpen" message="Trajet créé avec succès" color="success" [duration]="3000" (didDismiss)="openToast(false)"
-    icon="checkmark-sharp"></ion-toast>
+    icon="checkmark-sharp">
+  </ion-toast>
 </ion-content>
 
 
 <!-- <ion-item>
-            <ion-label>Toggle</ion-label>
-            <ion-toggle slot="end" (ionChange)="ceeve($event)"></ion-toggle>
-          </ion-item> -->
+  <ion-label>Toggle</ion-label>
+  <ion-toggle slot="end" (ionChange)="ceeve($event)"></ion-toggle>
+</ion-item> -->

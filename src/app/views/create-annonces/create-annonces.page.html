@@ -3,7 +3,7 @@
     <ion-buttons slot="start">
       <ion-back-button></ion-back-button>
     </ion-buttons>
-    <ion-title>Créer un annonce</ion-title>
+    <ion-title>Créer une annonce</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -40,7 +40,7 @@
         <ion-buttons slot="start">
           <ion-icon name="people-outline"></ion-icon>
           <ion-button shape="round" (click)="placeSubs()">
-            <ion-icon slot="icon-only" name="remove-sharp"></ion-icon>
+            <ion-icon slot="icon-only" name="remove-outline"></ion-icon>
           </ion-button>
           <b> {{nombrePlace}}</b>
           <ion-button shape="round" (click)="placeAdd()">
@@ -63,14 +63,17 @@
           </ng-template>
         </ion-modal>
       </div>
-      <div class="  btn d-f-c">
+      <div class="btn d-f-c">
         <ion-button block color="purple" type="submit" [disabled]="myGroup.invalid">
           Valider
         </ion-button>
-      </div>
+      </div><br/>
+      
     </form>
-
   </ion-card>
+
   <ion-toast [isOpen]="isToastOpen" message="Annonce créé avec succès" color="success" [duration]="3000" (didDismiss)="openToast(false)"
-    icon="checkmark-sharp"></ion-toast>
+    icon="checkmark-sharp">
+  </ion-toast>
+  
 </ion-content>

@@ -17,12 +17,10 @@ export class CreateAnnoncesPage implements OnInit {
   @ViewChild('dateDepart') dateDepart: any;
   @ViewChild('dateArrive') dateArrive: any;
 
-  constructor(
-    private alertCtrl: AlertController
-  ) { }
-
   nombrePlace: number = 0;
-  isToastOpen: boolean = false
+  prix: number = 0;
+  isToastOpen: boolean = false;
+
   myGroup = new FormGroup({
     depart: new FormControl(),
     arrive: new FormControl(),
@@ -34,8 +32,17 @@ export class CreateAnnoncesPage implements OnInit {
     minuteArrive: new FormControl()
   });
 
+  constructor(
+    private alertCtrl: AlertController
+  ) { }
+
+  
+  ngOnInit() {
+  }
+
   segmentChanged(e: any) {
-    console.log("Besoin de retour : ", e.detail.value)
+    console.log("Besoin de retour : ", e.detail.value);
+
   }
 
   placeSubs() {
@@ -45,15 +52,16 @@ export class CreateAnnoncesPage implements OnInit {
   }
 
   placeAdd() {
-    this.nombrePlace += 1
+    this.nombrePlace += 1;
   }
 
   onSubmit() {
     if (this.dateDepart.value != undefined && this.dateArrive.value != undefined) {
-      const date: any = this.dateDepart.value.split("T");
-      const heure: any = this.dateArrive.value.split("T");
-      console.log("dateDepart : ", date)
-      console.log("dateArrive : ", heure)
+      const dateDepart: any = this.dateDepart.value.split("T");
+      const dateArrive: any = this.dateArrive.value.split("T");
+      console.log("dateDepart : ", dateDepart);
+      console.log("dateDepart : ", dateArrive);
+      
       this.openToast(true);
     } else {
       this.openDialogDate()
@@ -73,11 +81,4 @@ export class CreateAnnoncesPage implements OnInit {
       });
     await alert.present();
   }
-
-
-
-
-  ngOnInit() {
-  }
-
 }

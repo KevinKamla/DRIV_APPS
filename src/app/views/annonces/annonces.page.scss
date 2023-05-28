@@ -16,6 +16,12 @@
     align-items: center;
 }
 
+.d-f-l {
+    display: flex;
+    justify-content: left;
+    align-items: left;
+}
+
 .d-f-s {
     display: flex;
     justify-content: space-between;
@@ -48,6 +54,11 @@
         ion-card-content {
             margin-top: -25px;
 
+            ion-avatar {
+                height: 30px;
+                width: 30px;
+            }
+
             .map_icon {
                 padding: 7px;
                 gap: 7px;
@@ -76,6 +87,7 @@
                 .origine,
                 .destination {
                     background: var(--ion-color-purple);
+                    margin-top: 10px;
                     border-radius: 20px;
                     width: max-content;
                     padding-inline: 11px;
@@ -83,7 +95,7 @@
                 }
 
                 .date_detail {
-                    gap: 7px;
+                    gap: 8px;
                     margin-block: 10px;
                     color: var(--ion-color-light-contrast);
 

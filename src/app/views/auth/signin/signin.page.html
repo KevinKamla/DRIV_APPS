@@ -5,58 +5,53 @@
       <h2>App</h2>
     </div>
     <ion-card class="bloc_form">
-      <div class="sign_by_number d-f" [routerLink]="['../sign-by-number']">
+      <!--<div class="sign_by_number d-f" [routerLink]="['../sign-by-number']">
         <span class="d-f-c"><ion-icon name="call"></ion-icon></span>
         <p class="d-f-c">Sign in with phone number</p>
-
       </div>
       <h5>or</h5>
+      <p class="ion-text-center"> Sign up here </p>-->
       <form action="" method="post" (ngSubmit)="onSubmit()" [formGroup]="loginForm">
+        <div class="d-f-c">
+          <ion-avatar class="logo">
+            <img alt="login" src="../../../assets/icon/login.png" />
+          </ion-avatar>
+        </div>
         <ion-item>
           <span class="d-f-c"><ion-icon slot="start" name="mail"></ion-icon></span>
-          <ion-input type="email" required formControlName="email" label="Email Address"
-            label-placement="floating"></ion-input>
+          <ion-input type="email" required formControlName="email" label="Email Address" label-placement="floating"></ion-input>
         </ion-item>
         <div *ngIf="loginForm.get('email')?.invalid && loginForm.get('email')?.touched">
-          <ion-text color="danger" class="form-error">
-            Please enter a valid email address.
-          </ion-text>
+          <ion-text color="danger" class="form-error"> Please enter a valid email address. </ion-text>
         </div>
         <ion-item>
           <span class="d-f-c"><ion-icon name="lock-closed"></ion-icon></span>
           <ion-input type="password" required formControlName="password" label="Password" label-placement="floating"></ion-input>
         </ion-item>
-        <p>Forgot password ?</p>
-        <ion-button (click)="onSubmit()" [routerLink]="['../home']" type="" expand="block" [disabled]="loginForm.invalid">Sign in</ion-button>
-      </form>
-      <p>New to Driv? <b> Sign with</b></p>
-      <div class="boc_icon">
-        <ion-grid>
-          <ion-row>
-            <ion-col size="2" offset="3">
-              <a href="#">
-                <ion-avatar>
-                  <img alt="google" src="../../../assets/icon/google.png" />
-                </ion-avatar>
-              </a>
-            </ion-col>
-            <ion-col size="2">
-              <a href="#">
-                <ion-avatar>
-                  <img alt="Facebook" src="../../../assets/icon/facebook.png" />
-                </ion-avatar>
-              </a>
-            </ion-col>
-            <ion-col size="2">
-              <a href="#">
-                <ion-avatar>
-                  <img alt="GMail" src="../../../assets/icon/gmail.png" />
-                </ion-avatar>
-              </a>
-            </ion-col>
-          </ion-row>
-        </ion-grid>
+        <p> <a [routerLink]="['/sign-by-number']"> Forgot password ? </a> </p>
+        <ion-button (click)="onSubmit()" type="" expand="block" [disabled]="loginForm.invalid">Login</ion-button>
+      </form><br/>
+      <div class="d-f-c">
+        <a href="#">
+          <ion-avatar>
+            <img alt="Facebook" src="../../../assets/icon/fingerprint.png" />
+          </ion-avatar>
+        </a>
+      </div>
+      <div class="d-f-c">
+        <p> New to Driv? 
+          <a [routerLink]="['/sign-by-number']"> <b> Sign in here </b> </a>
+        </p>
       </div>
     </ion-card>
   </div>
+
+  <ion-toast [isOpen]="isToastOpen1" message="Succes login" color="success"  [duration]="3000" (didDismiss)="openToast_success(false)"
+    icon="checkmark-sharp">
+  </ion-toast>
+
+  <ion-toast [isOpen]="isToastOpen2" message="Error verifying your credentials" color="danger"  [duration]="3000" (didDismiss)="openToast_error(false)"
+    icon="checkmark-sharp">
+  </ion-toast>
+
 </ion-content>

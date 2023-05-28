@@ -1,10 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import { IonicModule } from '@ionic/angular';
+import { IonicModule, MenuController } from '@ionic/angular';
 import { AnnoncesPage } from '../views/annonces/annonces.page';
 import { TrajetsPage } from '../views/trajets/trajets.page';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { RouterLink, RouterLinkActive } from '@angular/router';
+import { Storage } from '@ionic/storage-angular';
+import { DataService } from '../services/data.service';
 
 @Component({
   selector: 'app-home',
@@ -14,17 +16,33 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
   imports: [IonicModule, CommonModule, FormsModule, AnnoncesPage, TrajetsPage, RouterLink, RouterLinkActive],
 })
 export class HomePage implements OnInit {
-  constructor() { }
+  
+  constructor(
+    private storage: Storage,
+    private menuController: MenuController,
+    ) {
+      this.init();
+      this.menuController.enable(true);
+    }
+  
   segmentSelected: string = "annonces"
+  items: any; 
+  user: any = null;
 
   segmentChanged(e: any) {
-    // console.log(e.detail.value);
     this.segmentSelected = e.detail.value;
-
   }
 
-
-  ngOnInit() {
-    // console.log( "segmentSelected : ",  this.segmentSelected)
+  async init() {
+    await this.storage.create();
   }
+
+  async ngOnInit() {
+    await this.storage.get('user').then((response)=>{
+      this.user = response;
+    });
+    
+  }
+
+  
 }

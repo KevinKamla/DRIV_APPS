@@ -3,6 +3,9 @@ import { CommonModule } from '@angular/common';
 import { FormControl, FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { IonicModule, AnimationController, ModalController } from '@ionic/angular';
 import { RouterLink } from '@angular/router';
+import { PassengerAnnounceService } from 'src/app/services/passenger-announce.service';
+import { Storage } from '@ionic/storage-angular';
+import { HttpResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-annonces',
@@ -15,12 +18,32 @@ export class AnnoncesPage implements OnInit {
 
   constructor(
     private animationCtrl: AnimationController,
-    private modal: ModalController
-  ) { }
+    private modal: ModalController,
+    private passengerAnnounceService: PassengerAnnounceService,
+    private storage: Storage
+  ) { 
+    this.init();
+  }
+
   type: string = "Annonces";
   isToastOpen: boolean = false
   isToastOpenPropo: boolean = false
   nbPlace: number = 1;
+  announcesList: any; 
+  user: any = null;
+
+  async init() {
+    await this.storage.create();
+    await this.storage.get('user').then((response)=>{
+      this.user = response;
+    });
+  }
+
+  ngOnInit(){
+    this.passengerAnnounceService.get('passengerAnnounce').subscribe((response: HttpResponse<any>) => {
+      this.announcesList = response.body;
+    });
+  }
 
   searchForm = new FormGroup({
     depart: new FormControl(),
@@ -33,24 +56,20 @@ export class AnnoncesPage implements OnInit {
     commentaire: new FormControl(),
   });
 
-
+  
 
   Search() {
     this.modal.dismiss();
-
   }
  
   participerCovoiturage() {
     this.openToast(true);
       this.nbPlace += 1;
-    
   }
   
   propositionForm() {
     this.modal.dismiss();
     this.openToastPropo(true);
-
-
   }
 
   // ====================================== les toasts =================================
@@ -91,12 +110,5 @@ export class AnnoncesPage implements OnInit {
   leaveAnimation = (baseEl: HTMLElement) => {
     return this.enterAnimation(baseEl).direction('reverse');
   };
-
-
-
-
-
-  ngOnInit() {
-  }
 
 }

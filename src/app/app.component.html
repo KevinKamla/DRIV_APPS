@@ -2,15 +2,15 @@
   <ion-split-pane contentId="main-content">
     <ion-menu contentId="main-content" type="overlay">
       <ion-list-header class="container">
-        <div>
+        <div> 
           <ion-avatar class="avatar">
-            <img alt="prfil" src="../assets/icon/brice.jpg" />
+            <img src="{{profilePicture}}"/>  <!-- <img src="{{user.profilePicture}}"/> -->
           </ion-avatar> 
         </div>
         <div style="padding-left: 10px;">
           <ion-text>
-            <h4> Brice Martial</h4>
-            <p style="margin-top: -8px;"> Conducteur</p>
+            <h4> {{firstName}} {{lastName}}  </h4> <!--{{user.firstName}} {{user.lastName}} -->
+            <p style="margin-top: -8px;"> {{type}} </p> <!-- {{user.type}} -->
           </ion-text>
         </div>
       </ion-list-header>
@@ -32,7 +32,7 @@
           </ion-item>
         </ion-menu-toggle>
 
-        <ion-menu-toggle class="last-ion-menu-toggle">
+        <ion-menu-toggle class="last-ion-menu-toggle" (click)="logout()">
           <ion-item routerDirection="root" routerLink="/signin" lines="none" detail="false" routerLinkActive="selected">
             <ion-icon aria-hidden="true" slot="start" name="log-out"></ion-icon>
             <ion-label class="last-logout">Log out</ion-label>
